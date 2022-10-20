@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/azul"
+    tools:context=".Pantalla2Registro">
+
+    <TextView
+        android:id="@+id/Titulo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:fontFamily="monospace"
+        android:text="Registro"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/NombreRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="105dp"
+        android:fontFamily="monospace"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text="Nombre: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Titulo2" />
+
+    <EditText
+        android:id="@+id/EditNombreRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="92dp"
+        android:fontFamily="monospace"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:hint="Nombre"
+        app:layout_constraintStart_toEndOf="@+id/NombreRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/Titulo2" />
+
+    <TextView
+        android:id="@+id/ApellidosRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="monospace"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text="Apellidos: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NombreRegistro" />
+
+    <EditText
+        android:id="@+id/EditApellidosRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="monospace"
+        android:hint="Apellidos"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/ApellidosRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/EditNombreRegistro" />
+
+    <TextView
+        android:id="@+id/DNIRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="monospace"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text="DNI: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ApellidosRegistro" />
+
+    <EditText
+        android:id="@+id/EditDNIRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="monospace"
+        android:hint="DNI"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/DNIRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/EditApellidosRegistro" />
+
+    <TextView
+        android:id="@+id/EmailRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="monospace"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text="E-Mail: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DNIRegistro" />
+
+    <EditText
+        android:id="@+id/EditEmailRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="monospace"
+        android:hint="E-Mail"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/EmailRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/EditDNIRegistro" />
+
+    <TextView
+        android:id="@+id/SaldoRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="monospace"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text="Saldo Bancario: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailRegistro" />
+
+    <EditText
+        android:id="@+id/EditSaldoRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="monospace"
+        android:hint="Saldo Bancario"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/SaldoRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/EditEmailRegistro" />
+
+    <TextView
+        android:id="@+id/PasswordRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="monospace"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text="Contraseña: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SaldoRegistro" />
+
+    <EditText
+        android:id="@+id/EditPasswordRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="monospace"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/PasswordRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/EditSaldoRegistro" />
+
+    <Button
+        android:id="@+id/BotonConfirmar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="monospace"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:text="Confirmar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

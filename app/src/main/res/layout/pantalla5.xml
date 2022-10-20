@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/azul"
+    tools:context=".Pantalla5Crypto">
+
+    <TextView
+        android:id="@+id/Titulo5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:fontFamily="monospace"
+        android:text="Criptomonedas"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Wallet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="125dp"
+        android:fontFamily="monospace"
+        android:text="Wallet: "
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Titulo5" />
+
+    <EditText
+        android:id="@+id/EditWallet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="110dp"
+        android:fontFamily="monospace"
+        android:hint="Wallet"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/Wallet"
+        app:layout_constraintTop_toBottomOf="@+id/Titulo5" />
+
+    <TextView
+        android:id="@+id/Criptomoneda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="monospace"
+        android:text="Criptomoneda: "
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Wallet" />
+
+    <EditText
+        android:id="@+id/EditCriptomoneda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="monospace"
+        android:hint="Criptomoneda"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/Criptomoneda"
+        app:layout_constraintTop_toBottomOf="@+id/EditWallet" />
+
+    <TextView
+        android:id="@+id/CantidadTransferir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="monospace"
+        android:text="Cantidad a transferir: "
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Criptomoneda" />
+
+    <EditText
+        android:id="@+id/EditCantidadTransferir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="monospace"
+        android:hint="Cantidad"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/CantidadTransferir"
+        app:layout_constraintTop_toBottomOf="@+id/EditCriptomoneda" />
+
+    <TextView
+        android:id="@+id/ImporteTransferir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="monospace"
+        android:text="Importe a transferir: "
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CantidadTransferir" />
+
+    <EditText
+        android:id="@+id/EditImporteTransferir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="monospace"
+        android:hint="Importe"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/ImporteTransferir"
+        app:layout_constraintTop_toBottomOf="@+id/EditCantidadTransferir" />
+
+    <Button
+        android:id="@+id/BotonComprar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:fontFamily="monospace"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:text="Comprar"
+        app:layout_constraintTop_toBottomOf="@+id/ImporteTransferir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

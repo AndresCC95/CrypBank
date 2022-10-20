@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "208704640471",
+    "project_id": "crypbank-temporal",
+    "storage_bucket": "crypbank-temporal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208704640471:android:15df8860033d76da54e792",
+        "android_client_info": {
+          "package_name": "com.example.crypbank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208704640471-769v77u0pi5gb9adjla81su0d0tf1ttd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChvbCMecHjuTW5a1kFDYCcjlMtywZXd7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208704640471-769v77u0pi5gb9adjla81su0d0tf1ttd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
