@@ -1,1 +1,1 @@
-# CryBank
+# CrypBank
