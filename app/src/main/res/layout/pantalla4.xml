@@ -165,4 +165,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NombreBeneficiario" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/menua"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/rounded"
+        app:itemIconTint="@color/color_menu"
+        app:itemTextColor="@color/color_menu"
+        app:menu="@menu/menu"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

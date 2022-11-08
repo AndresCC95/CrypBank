@@ -50,6 +50,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/EditUser"
+            android:text="andres.prueba1@gmail.com"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress" />
@@ -72,6 +73,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/EditPassword"
+            android:text="123456"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />

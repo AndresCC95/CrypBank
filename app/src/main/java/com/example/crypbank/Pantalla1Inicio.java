@@ -63,8 +63,8 @@ public class Pantalla1Inicio extends AppCompatActivity {
                 pantalla3 = new Intent(Pantalla1Inicio.this, Pantalla3Principal.class);
                 startActivity(pantalla3);
                 finish();
-            } else{
-                Toast.makeText(getApplicationContext(), "Comprueba los datos" , Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Comprueba los datos", Toast.LENGTH_SHORT).show();
             }
         });
     }

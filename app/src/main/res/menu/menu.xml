@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item1"
+        android:title="menu_cuenta"
+        android:icon="@drawable/cash" />
+    <item
+        android:id="@+id/item2"
+        android:title="menu_cripto"
+        android:icon="@drawable/crypto" />
+    <item
+        android:id="@+id/item3"
+        android:title="menu_perfil"
+        android:icon="@drawable/icon" />
+    <item
+        android:id="@+id/item4"
+        android:title="menu_desconexion"
+        android:icon="@drawable/logout" />
+</menu>
