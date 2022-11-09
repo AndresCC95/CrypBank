@@ -1,5 +1,12 @@
 package com.example.crypbank.coingecko;
 
+import com.example.crypbank.coingecko.models.Coin;
+import com.example.crypbank.coingecko.models.SimplePriceDeserializer;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.util.List;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -16,8 +23,6 @@ public class CoinGeckoAdapter {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
 
         API_SERVICE = retrofit.create(CoinGeckoService.class);

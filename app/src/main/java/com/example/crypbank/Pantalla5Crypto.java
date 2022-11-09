@@ -9,8 +9,10 @@ import android.widget.Button;
 
 import com.example.crypbank.coingecko.CoinGeckoAdapter;
 import com.example.crypbank.coingecko.CoinGeckoService;
+import com.example.crypbank.coingecko.models.Coin;
 
 import java.io.IOException;
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -37,20 +39,6 @@ public class Pantalla5Crypto extends AppCompatActivity {
         botonComprar.setOnClickListener(view -> {
             pantalla3 = new Intent(Pantalla5Crypto.this, Pantalla3Principal.class);
             startActivity(pantalla3);
-        });
-
-        CoinGeckoService api = CoinGeckoAdapter.getApiService();
-        Call<String> call = api.checkPing();
-        call.enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                Log.i("Ping: ", response.toString());
-            }
-
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-
-            }
         });
     }
 }
