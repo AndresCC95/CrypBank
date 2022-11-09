@@ -2,7 +2,7 @@ package com.example.crypbank.coingecko.models;
 
 public class Coin {
 
-    public static final String[] COIN_NAMES = {"bitcoin", "ethereum", "dogecoin"};
+    public static final String[] COIN_NAMES = {"bitcoin","ethereum","dogecoin","cardano","solana"};
     public static final String[] CURRENCIES = {"eur"};
 
     private String nombre;

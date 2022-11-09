@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Button;
 
@@ -63,7 +64,10 @@ public class Pantalla3Principal extends AppCompatActivity {
         });
 
         CoinGeckoService api = CoinGeckoAdapter.getApiService();
-        Call<ResponseBody> call = api.coinInfo("bitcoin", "eur");
+        Call<ResponseBody> call = api.coinInfo(
+                TextUtils.join(",", Coin.COIN_NAMES),
+                TextUtils.join(",", Coin.CURRENCIES)
+        );
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -76,6 +80,10 @@ public class Pantalla3Principal extends AppCompatActivity {
                     List<Coin> coins = customGson.fromJson(response.body().string(), collectionType);
                     Log.i("nombre: ", coins.get(0).getNombre());
                     Log.i("precio: ", String.valueOf(coins.get(0).getPrecio()));
+                    Log.i("nombre: ", coins.get(1).getNombre());
+                    Log.i("precio: ", String.valueOf(coins.get(1).getPrecio()));
+                    Log.i("nombre: ", coins.get(2).getNombre());
+                    Log.i("precio: ", String.valueOf(coins.get(2).getPrecio()));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

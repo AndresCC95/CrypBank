@@ -17,11 +17,13 @@ public class SimplePriceDeserializer implements JsonDeserializer<List<Coin>> {
     @Override
     public List<Coin> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject responseJson = json.getAsJsonObject();
-        double precio = responseJson.get("bitcoin").getAsJsonObject().get("eur").getAsDouble();
-
-        Coin bitcoin = new Coin("bitcoin", precio);
         List<Coin> coins = new ArrayList<>();
-        coins.add(bitcoin);
+
+        for (String coinName : Coin.COIN_NAMES) {
+            double precio = responseJson.get(coinName).getAsJsonObject().get(Coin.CURRENCIES[0]).getAsDouble();
+            Coin coin = new Coin(coinName, precio);
+            coins.add(coin);
+        }
         return coins;
     }
 }
