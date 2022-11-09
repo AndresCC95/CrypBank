@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CrypBank</string>
+    <string name="menu_cuenta">Cuenta</string>
+    <string name="menu_cripto">Cripto</string>
+    <string name="menu_perfil">Perfil</string>
+    <string name="menu_desconexion">Desconexion</string>
 </resources>

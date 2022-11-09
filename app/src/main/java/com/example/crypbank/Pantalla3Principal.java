@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.crypbank.coingecko.CoinGeckoAdapter;
 import com.example.crypbank.coingecko.CoinGeckoService;
@@ -34,10 +35,36 @@ public class Pantalla3Principal extends AppCompatActivity {
     Button botonPerfil;
     Intent pantalla6;
 
+    private TextView monedaUno;
+    private TextView precioMonedaUno;
+
+    private TextView monedaDos;
+    private TextView precioMonedaDos;
+
+    private TextView monedaTres;
+    private TextView precioMonedaTres;
+
+    private TextView monedaCuatro;
+    private TextView precioMonedaCuatro;
+
+    private TextView monedaCinco;
+    private TextView precioMonedaCinco;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla3);
+
+        monedaUno =findViewById(R.id.EditCryptoUno);
+        precioMonedaUno =findViewById(R.id.EditPrecioUno);
+        monedaDos =findViewById(R.id.EditCryptoDos);
+        precioMonedaDos =findViewById(R.id.EditPrecioDos);
+        monedaTres =findViewById(R.id.EditCryptoTres);
+        precioMonedaTres =findViewById(R.id.EditPrecioTres);
+        monedaCuatro =findViewById(R.id.EditCryptoCuatro);
+        precioMonedaCuatro =findViewById(R.id.EditPrecioCuatro);
+        monedaCinco =findViewById(R.id.EditCryptoCinco);
+        precioMonedaCinco =findViewById(R.id.EditPrecioCinco);
     }
 
     @Override
@@ -84,6 +111,26 @@ public class Pantalla3Principal extends AppCompatActivity {
                     Log.i("precio: ", String.valueOf(coins.get(1).getPrecio()));
                     Log.i("nombre: ", coins.get(2).getNombre());
                     Log.i("precio: ", String.valueOf(coins.get(2).getPrecio()));
+                    String monedaUnoA = coins.get(0).getNombre();
+                    String precioUnoA = String.valueOf(coins.get(0).getPrecio());
+                    String monedaDosA = coins.get(1).getNombre();
+                    String precioDosA = String.valueOf(coins.get(1).getPrecio());
+                    String monedaTresA = coins.get(2).getNombre();
+                    String precioTresA = String.valueOf(coins.get(2).getPrecio());
+                    String monedaCuatroA = coins.get(3).getNombre();
+                    String precioCuatroA = String.valueOf(coins.get(3).getPrecio());
+                    String monedaCincoA = coins.get(4).getNombre();
+                    String precioCincoA = String.valueOf(coins.get(4).getPrecio());
+                    monedaUno.setText(monedaUnoA);
+                    precioMonedaUno.setText(precioUnoA);
+                    monedaDos.setText(monedaDosA);
+                    precioMonedaDos.setText(precioDosA);
+                    monedaTres.setText(monedaTresA);
+                    precioMonedaTres.setText(precioTresA);
+                    monedaCuatro.setText(monedaCuatroA);
+                    precioMonedaCuatro.setText(precioCuatroA);
+                    monedaCinco.setText(monedaCincoA);
+                    precioMonedaCinco.setText(precioCincoA);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
