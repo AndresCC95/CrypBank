@@ -12,59 +12,61 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Pantalla1Inicio extends AppCompatActivity {
 
-    private EditText nombreUsuario;
-    private EditText password;
+    private EditText usuario;
+    private EditText contraseña;
 
-    private Intent pantalla3;
-    private Intent pantalla2;
+    private String user;
+    private String password;
+
+    private Button botonLogin;
+    private Button botonTransparente;
 
     private FirebaseAuth myAuth;
-
-    private String usuario;
-    private String scontraseña;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla1);
+
+        usuario = findViewById(R.id.editUserOne);
+        contraseña = findViewById(R.id.editPasswordOne);
+
+        botonLogin = findViewById(R.id.loginButton);
+        botonTransparente = findViewById(R.id.transparentButton);
+
+        myAuth = FirebaseAuth.getInstance();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        nombreUsuario=findViewById(R.id.EditUser);
-        password=findViewById(R.id.EditPassword);
-
-        myAuth=FirebaseAuth.getInstance();
-        Button botonLogin = findViewById(R.id.BotonLogin);
         botonLogin.setOnClickListener(view -> {
-            usuario = nombreUsuario.getText().toString();
-            scontraseña= password.getText().toString();
+            user = usuario.getText().toString();
+            password = contraseña.getText().toString();
 
-            if (!usuario.isEmpty()&& !scontraseña.isEmpty()) {
+            if (!user.isEmpty() && !password.isEmpty()) {
                 inicioSesion();
             } else {
-                Toast.makeText(getApplicationContext(), "Rellena los campos" , Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Rellena los campos.", Toast.LENGTH_SHORT).show();
             }
         });
 
-        Button botonTransparente = findViewById(R.id.BotonTransparente);
         botonTransparente.setOnClickListener(view -> {
-            pantalla2 = new Intent(Pantalla1Inicio.this, Pantalla2Registro.class);
+            Intent pantalla2 = new Intent(Pantalla1Inicio.this, Pantalla2Registro.class);
             startActivity(pantalla2);
             finish();
         });
     }
 
     private void inicioSesion() {
-        myAuth.signInWithEmailAndPassword(usuario,scontraseña).addOnCompleteListener(task -> {
+        myAuth.signInWithEmailAndPassword(user, password).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                pantalla3 = new Intent(Pantalla1Inicio.this, Pantalla3Principal.class);
+                Intent pantalla3 = new Intent(Pantalla1Inicio.this, Pantalla3Principal.class);
                 startActivity(pantalla3);
                 finish();
             } else {
-                Toast.makeText(getApplicationContext(), "Comprueba los datos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Comprueba los datos.", Toast.LENGTH_SHORT).show();
             }
         });
     }

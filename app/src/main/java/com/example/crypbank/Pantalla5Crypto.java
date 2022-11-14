@@ -4,40 +4,26 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
-
-import com.example.crypbank.coingecko.CoinGeckoAdapter;
-import com.example.crypbank.coingecko.CoinGeckoService;
-import com.example.crypbank.coingecko.models.Coin;
-
-import java.io.IOException;
-import java.util.List;
-
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class Pantalla5Crypto extends AppCompatActivity {
 
     private Button botonComprar;
-    private Intent pantalla3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla5);
+
+        botonComprar = findViewById(R.id.confirmBuyButton);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        botonComprar = findViewById(R.id.BotonComprar);
-
         botonComprar.setOnClickListener(view -> {
-            pantalla3 = new Intent(Pantalla5Crypto.this, Pantalla3Principal.class);
+            Intent pantalla3 = new Intent(Pantalla5Crypto.this, Pantalla3Principal.class);
             startActivity(pantalla3);
         });
     }

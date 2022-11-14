@@ -8,7 +8,7 @@
     tools:context=".Pantalla2Registro">
 
     <TextView
-        android:id="@+id/Titulo2"
+        android:id="@+id/titleTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/NombreRegistro"
+        android:id="@+id/registerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -32,10 +32,10 @@
         android:textSize="16sp"
         android:text="Nombre: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Titulo2" />
+        app:layout_constraintTop_toBottomOf="@+id/titleTwo" />
 
     <EditText
-        android:id="@+id/EditNombreRegistro"
+        android:id="@+id/editRegisterNaame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -44,11 +44,11 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         android:hint="Nombre"
-        app:layout_constraintStart_toEndOf="@+id/NombreRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/Titulo2" />
+        app:layout_constraintStart_toEndOf="@+id/registerName"
+        app:layout_constraintTop_toBottomOf="@+id/titleTwo" />
 
     <TextView
-        android:id="@+id/ApellidosRegistro"
+        android:id="@+id/registerLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -58,10 +58,10 @@
         android:textSize="16sp"
         android:text="Apellidos: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NombreRegistro" />
+        app:layout_constraintTop_toBottomOf="@+id/registerName" />
 
     <EditText
-        android:id="@+id/EditApellidosRegistro"
+        android:id="@+id/editRegisterLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -70,11 +70,11 @@
         android:hint="Apellidos"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/ApellidosRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/EditNombreRegistro" />
+        app:layout_constraintStart_toEndOf="@+id/registerLastName"
+        app:layout_constraintTop_toBottomOf="@+id/editRegisterNaame" />
 
     <TextView
-        android:id="@+id/DNIRegistro"
+        android:id="@+id/registerDni"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -84,10 +84,10 @@
         android:textSize="16sp"
         android:text="DNI: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ApellidosRegistro" />
+        app:layout_constraintTop_toBottomOf="@+id/registerLastName" />
 
     <EditText
-        android:id="@+id/EditDNIRegistro"
+        android:id="@+id/editRegisterDni"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -96,11 +96,11 @@
         android:hint="DNI"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/DNIRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/EditApellidosRegistro" />
+        app:layout_constraintStart_toEndOf="@+id/registerDni"
+        app:layout_constraintTop_toBottomOf="@+id/editRegisterLastName" />
 
     <TextView
-        android:id="@+id/EmailRegistro"
+        android:id="@+id/registerEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -110,10 +110,10 @@
         android:textSize="16sp"
         android:text="E-Mail: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DNIRegistro" />
+        app:layout_constraintTop_toBottomOf="@+id/registerDni" />
 
     <EditText
-        android:id="@+id/EditEmailRegistro"
+        android:id="@+id/editRegisterEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -123,11 +123,11 @@
         android:inputType="textEmailAddress"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/EmailRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/EditDNIRegistro" />
+        app:layout_constraintStart_toEndOf="@+id/registerEmail"
+        app:layout_constraintTop_toBottomOf="@+id/editRegisterDni" />
 
     <TextView
-        android:id="@+id/SaldoRegistro"
+        android:id="@+id/registerBalance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -137,10 +137,10 @@
         android:textSize="16sp"
         android:text="Saldo Bancario: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EmailRegistro" />
+        app:layout_constraintTop_toBottomOf="@+id/registerEmail" />
 
     <EditText
-        android:id="@+id/EditSaldoRegistro"
+        android:id="@+id/editRegisterBalance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -149,11 +149,11 @@
         android:hint="Saldo Bancario"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/SaldoRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/EditEmailRegistro" />
+        app:layout_constraintStart_toEndOf="@+id/registerBalance"
+        app:layout_constraintTop_toBottomOf="@+id/editRegisterEmail" />
 
     <TextView
-        android:id="@+id/PasswordRegistro"
+        android:id="@+id/registerPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -163,10 +163,10 @@
         android:textSize="16sp"
         android:text="Contraseña: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SaldoRegistro" />
+        app:layout_constraintTop_toBottomOf="@+id/registerBalance" />
 
     <EditText
-        android:id="@+id/EditPasswordRegistro"
+        android:id="@+id/editRegisterPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -176,11 +176,11 @@
         android:inputType="textPassword"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/PasswordRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/EditSaldoRegistro" />
+        app:layout_constraintStart_toEndOf="@+id/registerPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editRegisterBalance" />
 
     <Button
-        android:id="@+id/BotonConfirmar"
+        android:id="@+id/confirmButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"

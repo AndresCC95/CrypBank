@@ -8,7 +8,7 @@
     tools:context=".Pantalla6Perfil">
 
     <TextView
-        android:id="@+id/Titulo6"
+        android:id="@+id/titleSix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/FotoPerfil"
+        android:id="@+id/profilePicture"
         android:layout_width="117dp"
         android:layout_height="124dp"
         android:layout_marginTop="50dp"
@@ -31,10 +31,10 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Titulo6" />
+        app:layout_constraintTop_toBottomOf="@+id/titleSix" />
 
     <TextView
-        android:id="@+id/NombrePerfil"
+        android:id="@+id/profileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -44,10 +44,10 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FotoPerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
 
     <TextView
-        android:id="@+id/EditNombrePerfil"
+        android:id="@+id/editProfileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
@@ -55,11 +55,11 @@
         android:hint="Nombre"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/NombrePerfil"
-        app:layout_constraintTop_toTopOf="@+id/NombrePerfil" />
+        app:layout_constraintStart_toEndOf="@+id/profileName"
+        app:layout_constraintTop_toTopOf="@+id/profileName" />
 
     <TextView
-        android:id="@+id/ApellidosPerfil"
+        android:id="@+id/profileLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -69,10 +69,10 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NombrePerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/profileName" />
 
     <TextView
-        android:id="@+id/EditApellidosPerfil"
+        android:id="@+id/editProfileLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -81,11 +81,11 @@
         android:inputType="textEmailAddress"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/ApellidosPerfil"
-        app:layout_constraintTop_toTopOf="@+id/ApellidosPerfil" />
+        app:layout_constraintStart_toEndOf="@+id/profileLastName"
+        app:layout_constraintTop_toTopOf="@+id/profileLastName" />
 
     <TextView
-        android:id="@+id/DNIPerfil"
+        android:id="@+id/profileDni"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -95,10 +95,10 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ApellidosPerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/profileLastName" />
 
     <TextView
-        android:id="@+id/EditDNIPerfil"
+        android:id="@+id/editProfileDni"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
@@ -106,11 +106,11 @@
         android:hint="DNI"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/DNIPerfil"
-        app:layout_constraintTop_toTopOf="@+id/DNIPerfil" />
+        app:layout_constraintStart_toEndOf="@+id/profileDni"
+        app:layout_constraintTop_toTopOf="@+id/profileDni" />
 
     <TextView
-        android:id="@+id/EmailPerfil"
+        android:id="@+id/profileEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -120,10 +120,10 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DNIPerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/profileDni" />
 
     <TextView
-        android:id="@+id/EditEmailPerfil"
+        android:id="@+id/editProfileEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
@@ -131,11 +131,11 @@
         android:hint="E-Mail"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/EmailPerfil"
-        app:layout_constraintTop_toTopOf="@+id/EmailPerfil" />
+        app:layout_constraintStart_toEndOf="@+id/profileEmail"
+        app:layout_constraintTop_toTopOf="@+id/profileEmail" />
 
     <TextView
-        android:id="@+id/Saldo"
+        android:id="@+id/profileBalance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -145,10 +145,10 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FotoPerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
 
     <TextView
-        android:id="@+id/EditSaldo"
+        android:id="@+id/editProfileBalance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="156dp"
@@ -158,10 +158,10 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FotoPerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
 
     <Button
-        android:id="@+id/BotonVolver"
+        android:id="@+id/returnButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="75dp"
@@ -169,11 +169,11 @@
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:text="Volver"
-        app:layout_constraintBottom_toTopOf="@+id/menua"
+        app:layout_constraintBottom_toTopOf="@+id/navigationMenuSix"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/menua"
+        android:id="@+id/navigationMenuSix"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@drawable/rounded"

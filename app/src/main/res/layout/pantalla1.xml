@@ -8,7 +8,7 @@
     tools:context=".Pantalla1Inicio">
 
     <TextView
-        android:id="@+id/Titulo1"
+        android:id="@+id/titleOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/FotoPortada"
+        android:id="@+id/pictureOne"
         android:layout_width="317dp"
         android:layout_height="238dp"
         android:layout_marginStart="45dp"
@@ -31,10 +31,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Titulo1" />
+        app:layout_constraintTop_toBottomOf="@+id/titleOne" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/User"
+        android:id="@+id/userOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -45,11 +45,11 @@
         app:helperTextTextColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FotoPortada"
+        app:layout_constraintTop_toBottomOf="@+id/pictureOne"
         app:startIconDrawable="@drawable/person">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/EditUser"
+            android:id="@+id/editUserOne"
             android:text="andres.prueba1@gmail.com"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Password"
+        android:id="@+id/passwordOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -68,11 +68,11 @@
         app:helperTextTextColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/User"
+        app:layout_constraintTop_toBottomOf="@+id/userOne"
         app:startIconDrawable="@drawable/lock">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/EditPassword"
+            android:id="@+id/editPasswordOne"
             android:text="123456"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/BotonLogin"
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
@@ -89,13 +89,13 @@
         android:text="Acceder"
         android:textAllCaps="false"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/BotonTransparente"
+        app:layout_constraintBottom_toTopOf="@+id/transparentButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:rippleColor="@color/black" />
 
     <Button
-        android:id="@+id/BotonTransparente"
+        android:id="@+id/transparentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"

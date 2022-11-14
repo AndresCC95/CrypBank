@@ -17,81 +17,80 @@ import java.util.Map;
 
 public class Pantalla2Registro extends AppCompatActivity {
 
-    private EditText EditEmailRegistro;
-    private EditText EditPasswordRegistro;
-    private EditText Saldo;
-    private EditText Nombre;
-    private EditText Apellidos;
-    private EditText Dni;
+    private EditText usuario;
+    private EditText contraseña;
+    private EditText nombre;
+    private EditText apellidos;
+    private EditText dni;
+    private EditText saldo;
 
-    private Button BotonConfirmar;
-    private Intent pantalla3;
-
-    FirebaseAuth myAuth;
-    DatabaseReference mDatabase;
-
-    private String name = "";
-    private String email = "";
+    private String user = "";
     private String password = "";
-    private String lastname = "";
-    private String dni = "";
-    private int balance = 0 ;
+    private String name = "";
+    private String lastName = "";
+    private String userDni = "";
+    private double balance = 0 ;
+
+    private Button botonConfirmar;
+
+    private FirebaseAuth myAuth;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla2);
 
+        usuario = findViewById(R.id.editRegisterEmail);
+        contraseña = findViewById(R.id.editRegisterPassword);
+        nombre = findViewById(R.id.editRegisterNaame);
+        apellidos = findViewById(R.id.editRegisterLastName);
+        dni = findViewById(R.id.editRegisterDni);
+        saldo = findViewById(R.id.editRegisterBalance);
+
+        botonConfirmar = findViewById(R.id.confirmButton);
+
         myAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-
-        Nombre=findViewById(R.id.EditNombreRegistro);
-        Apellidos=findViewById(R.id.EditApellidosRegistro);
-        Dni=findViewById(R.id.EditDNIRegistro);
-        Saldo= findViewById(R.id.EditSaldoRegistro);
-        EditEmailRegistro = findViewById(R.id.EditEmailRegistro);
-        EditPasswordRegistro = findViewById(R.id.EditPasswordRegistro);
-
-        BotonConfirmar = findViewById(R.id.BotonConfirmar);
-        pantalla3 = new Intent(Pantalla2Registro.this, Pantalla3Principal.class);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        BotonConfirmar.setOnClickListener(v -> {
-            name = Nombre.getText().toString();
-            email = EditEmailRegistro.getText().toString();
-            password = EditPasswordRegistro.getText().toString();
-            lastname = Apellidos.getText().toString();
-            dni = Dni.getText().toString();
-            balance = Integer.parseInt(Saldo.getText().toString());
+        botonConfirmar.setOnClickListener(v -> {
+            name = nombre.getText().toString();
+            user = usuario.getText().toString();
+            password = contraseña.getText().toString();
+            lastName = apellidos.getText().toString();
+            userDni = dni.getText().toString();
+            balance = Integer.parseInt(saldo.getText().toString());
 
 
-            if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty() && !lastname.isEmpty() && !dni.isEmpty()) {
-                RegistroFirebase();
+            if (!name.isEmpty() && !user.isEmpty() && !password.isEmpty() && !lastName.isEmpty() && !userDni.isEmpty()) {
+                registroFirebase();
             } else {
-                Toast.makeText(getApplicationContext(), "Debe instertar los datos que faltan.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Debe instertar los datos que faltan.", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void RegistroFirebase() {
-        myAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
+    private void registroFirebase() {
+        myAuth.createUserWithEmailAndPassword(user, password).addOnCompleteListener(task -> {
 
             if (task.isSuccessful()) {
                 Map<String,Object> map =new HashMap<>();
-                map.put("Nombre", name);
-                map.put("Email", email);
+                map.put("Email", user);
                 map.put("Clave", password);
-                map.put("Apellido", lastname);
-                map.put("Dni", dni);
+                map.put("Nombre", name);
+                map.put("Apellido", lastName);
+                map.put("Dni", userDni);
                 map.put("Saldo", balance);
 
                 String id= myAuth.getCurrentUser().getUid();
                 mDatabase.child("Usuarios").child(id).setValue(map).addOnCompleteListener(task2 -> {
                     if(task2.isSuccessful()){
+                        Intent pantalla3 = new Intent(Pantalla2Registro.this, Pantalla3Principal.class);
                         startActivity(pantalla3);
                         finish();
                     }

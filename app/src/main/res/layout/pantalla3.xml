@@ -13,7 +13,7 @@
     tools:context=".Pantalla3Principal">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/menua"
+        android:id="@+id/navigationMenuThree"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@drawable/rounded"
@@ -28,7 +28,7 @@
         android:layout_weight=".7">
 
         <Button
-            android:id="@+id/BotonTransferencia"
+            android:id="@+id/transferButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Transferencia"
@@ -37,7 +37,7 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/TituloCuenta"
+            android:id="@+id/accountTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="250dp"
@@ -47,10 +47,10 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/BotonTransferencia" />
+            app:layout_constraintStart_toStartOf="@+id/transferButton" />
 
         <TextView
-            android:id="@+id/Saldo"
+            android:id="@+id/balanceThree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -60,10 +60,10 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/BotonTransferencia" />
+            app:layout_constraintTop_toBottomOf="@+id/transferButton" />
 
         <TextView
-            android:id="@+id/EditSaldo"
+            android:id="@+id/editBalanceThree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="90dp"
@@ -73,10 +73,10 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/BotonTransferencia" />
+            app:layout_constraintTop_toBottomOf="@+id/transferButton" />
 
         <TextView
-            android:id="@+id/UltimasTransferencias"
+            android:id="@+id/transferThree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -86,10 +86,10 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Saldo" />
+            app:layout_constraintTop_toBottomOf="@+id/balanceThree" />
 
         <TextView
-            android:id="@+id/EditUltimasTransferencias"
+            android:id="@+id/editTransferThree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="215dp"
@@ -99,7 +99,7 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditSaldo" />
+            app:layout_constraintTop_toBottomOf="@+id/editBalanceThree" />
 
     </RelativeLayout>
 
@@ -109,7 +109,7 @@
         android:layout_weight=".3">
 
         <Button
-            android:id="@+id/BotonCompra"
+            android:id="@+id/buyButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Compra"
@@ -117,7 +117,7 @@
             android:textAllCaps="false"
             android:textColor="@color/black" />
         <TextView
-            android:id="@+id/TituloCrypto"
+            android:id="@+id/cryptoTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="250dp"
@@ -127,10 +127,10 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/BotonCompra" />
+            app:layout_constraintStart_toStartOf="@+id/buyButton" />
 
         <Button
-            android:id="@+id/BotonPerfil"
+            android:id="@+id/profileButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -152,10 +152,10 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/BotonPerfil" />
+            app:layout_constraintTop_toBottomOf="@+id/profileButton" />
 
         <TextView
-            android:id="@+id/EditCryptoUno"
+            android:id="@+id/editCryptoUno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="120dp"
@@ -165,10 +165,10 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/BotonPerfil" />
+            app:layout_constraintTop_toBottomOf="@+id/profileButton" />
 
         <TextView
-            android:id="@+id/EditPrecioUno"
+            android:id="@+id/editPrecioUno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="200dp"
@@ -178,7 +178,7 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/BotonPerfil" />
+            app:layout_constraintTop_toBottomOf="@+id/profileButton" />
 
         <TextView
             android:id="@+id/cryptoDos"
@@ -194,7 +194,7 @@
             app:layout_constraintTop_toBottomOf="@+id/cryptoUno" />
 
         <TextView
-            android:id="@+id/EditCryptoDos"
+            android:id="@+id/editCryptoDos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="120dp"
@@ -204,10 +204,10 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditCryptoUno" />
+            app:layout_constraintTop_toBottomOf="@+id/editCryptoUno" />
 
         <TextView
-            android:id="@+id/EditPrecioDos"
+            android:id="@+id/editPrecioDos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="200dp"
@@ -217,7 +217,7 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditPrecioUno" />
+            app:layout_constraintTop_toBottomOf="@+id/editPrecioUno" />
 
         <TextView
             android:id="@+id/cryptoTres"
@@ -233,7 +233,7 @@
             app:layout_constraintTop_toBottomOf="@+id/cryptoDos" />
 
         <TextView
-            android:id="@+id/EditCryptoTres"
+            android:id="@+id/editCryptoTres"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="120dp"
@@ -243,10 +243,10 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditCryptoDos" />
+            app:layout_constraintTop_toBottomOf="@+id/editCryptoDos" />
 
         <TextView
-            android:id="@+id/EditPrecioTres"
+            android:id="@+id/editPrecioTres"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="200dp"
@@ -256,7 +256,7 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditPrecioDos" />
+            app:layout_constraintTop_toBottomOf="@+id/editPrecioDos" />
 
         <TextView
             android:id="@+id/cryptoCuatro"
@@ -272,7 +272,7 @@
             app:layout_constraintTop_toBottomOf="@+id/cryptoTres" />
 
         <TextView
-            android:id="@+id/EditCryptoCuatro"
+            android:id="@+id/editCryptoCuatro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="120dp"
@@ -282,10 +282,10 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditCryptoTres" />
+            app:layout_constraintTop_toBottomOf="@+id/editCryptoTres" />
 
         <TextView
-            android:id="@+id/EditPrecioCuatro"
+            android:id="@+id/editPrecioCuatro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="200dp"
@@ -295,7 +295,7 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditPrecioTres" />
+            app:layout_constraintTop_toBottomOf="@+id/editPrecioTres" />
 
         <TextView
             android:id="@+id/cryptoCinco"
@@ -311,7 +311,7 @@
             app:layout_constraintTop_toBottomOf="@+id/cryptoCuatro" />
 
         <TextView
-            android:id="@+id/EditCryptoCinco"
+            android:id="@+id/editCryptoCinco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="120dp"
@@ -321,10 +321,10 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditCryptoCuatro" />
+            app:layout_constraintTop_toBottomOf="@+id/editCryptoCuatro" />
 
         <TextView
-            android:id="@+id/EditPrecioCinco"
+            android:id="@+id/editPrecioCinco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="200dp"
@@ -334,7 +334,7 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditPrecioCuatro" />
+            app:layout_constraintTop_toBottomOf="@+id/editPrecioCuatro" />
 
     </RelativeLayout>
 </LinearLayout>

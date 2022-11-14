@@ -28,13 +28,6 @@ import retrofit2.Response;
 
 public class Pantalla3Principal extends AppCompatActivity {
 
-    Button botonTransferencia;
-    Intent pantalla4;
-    Button botonCompra;
-    Intent pantalla5;
-    Button botonPerfil;
-    Intent pantalla6;
-
     private TextView monedaUno;
     private TextView precioMonedaUno;
 
@@ -50,43 +43,51 @@ public class Pantalla3Principal extends AppCompatActivity {
     private TextView monedaCinco;
     private TextView precioMonedaCinco;
 
+    private Button botonTransferencia;
+    private Button botonCompra;
+    private Button botonPerfil;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla3);
 
-        monedaUno =findViewById(R.id.EditCryptoUno);
-        precioMonedaUno =findViewById(R.id.EditPrecioUno);
-        monedaDos =findViewById(R.id.EditCryptoDos);
-        precioMonedaDos =findViewById(R.id.EditPrecioDos);
-        monedaTres =findViewById(R.id.EditCryptoTres);
-        precioMonedaTres =findViewById(R.id.EditPrecioTres);
-        monedaCuatro =findViewById(R.id.EditCryptoCuatro);
-        precioMonedaCuatro =findViewById(R.id.EditPrecioCuatro);
-        monedaCinco =findViewById(R.id.EditCryptoCinco);
-        precioMonedaCinco =findViewById(R.id.EditPrecioCinco);
+        monedaUno = findViewById(R.id.editCryptoUno);
+        precioMonedaUno = findViewById(R.id.editPrecioUno);
+
+        monedaDos = findViewById(R.id.editCryptoDos);
+        precioMonedaDos = findViewById(R.id.editPrecioDos);
+
+        monedaTres = findViewById(R.id.editCryptoTres);
+        precioMonedaTres = findViewById(R.id.editPrecioTres);
+
+        monedaCuatro = findViewById(R.id.editCryptoCuatro);
+        precioMonedaCuatro = findViewById(R.id.editPrecioCuatro);
+
+        monedaCinco = findViewById(R.id.editCryptoCinco);
+        precioMonedaCinco = findViewById(R.id.editPrecioCinco);
+
+        botonTransferencia = findViewById(R.id.transferButton);
+        botonCompra = findViewById(R.id.buyButton);
+        botonPerfil = findViewById(R.id.profileButton);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        botonTransferencia = findViewById(R.id.BotonTransferencia);
-        botonCompra = findViewById(R.id.BotonCompra);
-        botonPerfil = findViewById(R.id.BotonPerfil);
-
         botonTransferencia.setOnClickListener(view -> {
-            pantalla4 = new Intent(Pantalla3Principal.this, Pantalla4Cuenta.class);
+            Intent pantalla4 = new Intent(Pantalla3Principal.this, Pantalla4Cuenta.class);
             startActivity(pantalla4);
         });
 
         botonCompra.setOnClickListener(view -> {
-            pantalla5 = new Intent(Pantalla3Principal.this, Pantalla5Crypto.class);
+            Intent pantalla5 = new Intent(Pantalla3Principal.this, Pantalla5Crypto.class);
             startActivity(pantalla5);
         });
 
         botonPerfil.setOnClickListener(view -> {
-            pantalla6 = new Intent(Pantalla3Principal.this, Pantalla6Perfil.class);
+            Intent pantalla6 = new Intent(Pantalla3Principal.this, Pantalla6Perfil.class);
             startActivity(pantalla6);
         });
 
@@ -95,6 +96,7 @@ public class Pantalla3Principal extends AppCompatActivity {
                 TextUtils.join(",", Coin.COIN_NAMES),
                 TextUtils.join(",", Coin.CURRENCIES)
         );
+
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -111,24 +113,34 @@ public class Pantalla3Principal extends AppCompatActivity {
                     Log.i("precio: ", String.valueOf(coins.get(1).getPrecio()));
                     Log.i("nombre: ", coins.get(2).getNombre());
                     Log.i("precio: ", String.valueOf(coins.get(2).getPrecio()));
+
                     String monedaUnoA = coins.get(0).getNombre();
                     String precioUnoA = String.valueOf(coins.get(0).getPrecio());
+
                     String monedaDosA = coins.get(1).getNombre();
                     String precioDosA = String.valueOf(coins.get(1).getPrecio());
+
                     String monedaTresA = coins.get(2).getNombre();
                     String precioTresA = String.valueOf(coins.get(2).getPrecio());
+
                     String monedaCuatroA = coins.get(3).getNombre();
                     String precioCuatroA = String.valueOf(coins.get(3).getPrecio());
+
                     String monedaCincoA = coins.get(4).getNombre();
                     String precioCincoA = String.valueOf(coins.get(4).getPrecio());
+
                     monedaUno.setText(monedaUnoA);
                     precioMonedaUno.setText(precioUnoA);
+
                     monedaDos.setText(monedaDosA);
                     precioMonedaDos.setText(precioDosA);
+
                     monedaTres.setText(monedaTresA);
                     precioMonedaTres.setText(precioTresA);
+
                     monedaCuatro.setText(monedaCuatroA);
                     precioMonedaCuatro.setText(precioCuatroA);
+
                     monedaCinco.setText(monedaCincoA);
                     precioMonedaCinco.setText(precioCincoA);
                 } catch (IOException e) {

@@ -8,7 +8,7 @@
     tools:context=".Pantalla4Cuenta">
 
     <TextView
-        android:id="@+id/Titulo4"
+        android:id="@+id/titleFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/CuentaBancaria"
+        android:id="@+id/bankAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -32,10 +32,10 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Titulo4" />
+        app:layout_constraintTop_toBottomOf="@+id/titleFour" />
 
     <TextView
-        android:id="@+id/EditCuentaBancaria"
+        android:id="@+id/editBankAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -43,11 +43,11 @@
         android:hint="Cuenta Bancaria"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/CuentaBancaria"
-        app:layout_constraintTop_toTopOf="@+id/CuentaBancaria" />
+        app:layout_constraintStart_toEndOf="@+id/bankAccount"
+        app:layout_constraintTop_toTopOf="@+id/bankAccount" />
 
     <TextView
-        android:id="@+id/Saldo"
+        android:id="@+id/balanceFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -57,10 +57,10 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CuentaBancaria" />
+        app:layout_constraintTop_toBottomOf="@+id/bankAccount" />
 
     <TextView
-        android:id="@+id/EditSaldo"
+        android:id="@+id/editBalanceFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -71,11 +71,11 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.344"
-        app:layout_constraintStart_toEndOf="@+id/Saldo"
-        app:layout_constraintTop_toTopOf="@+id/Saldo" />
+        app:layout_constraintStart_toEndOf="@+id/balanceFour"
+        app:layout_constraintTop_toTopOf="@+id/balanceFour" />
 
     <TextView
-        android:id="@+id/DineroTransferir"
+        android:id="@+id/transferMoney"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -85,10 +85,10 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Saldo" />
+        app:layout_constraintTop_toBottomOf="@+id/balanceFour" />
 
     <EditText
-        android:id="@+id/EditDineroTransferir"
+        android:id="@+id/editTransferMoney"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -97,11 +97,11 @@
         android:hint="Dinero"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/DineroTransferir"
-        app:layout_constraintTop_toBottomOf="@+id/EditSaldo" />
+        app:layout_constraintStart_toEndOf="@+id/transferMoney"
+        app:layout_constraintTop_toBottomOf="@+id/editBalanceFour" />
 
     <TextView
-        android:id="@+id/CuentaTransferir"
+        android:id="@+id/transferAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -111,10 +111,10 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DineroTransferir" />
+        app:layout_constraintTop_toBottomOf="@+id/transferMoney" />
 
     <EditText
-        android:id="@+id/EditCuentaTransferir"
+        android:id="@+id/editTransferAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -123,11 +123,11 @@
         android:hint="Cuenta"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/CuentaTransferir"
-        app:layout_constraintTop_toBottomOf="@+id/EditDineroTransferir" />
+        app:layout_constraintStart_toEndOf="@+id/transferAccount"
+        app:layout_constraintTop_toBottomOf="@+id/editTransferMoney" />
 
     <TextView
-        android:id="@+id/NombreBeneficiario"
+        android:id="@+id/beneficiary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -137,10 +137,10 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CuentaTransferir" />
+        app:layout_constraintTop_toBottomOf="@+id/transferAccount" />
 
     <EditText
-        android:id="@+id/EditNombreBeneficiario"
+        android:id="@+id/editBeneficiary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -149,11 +149,11 @@
         android:hint="Beneficiario"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/NombreBeneficiario"
-        app:layout_constraintTop_toBottomOf="@+id/EditCuentaTransferir" />
+        app:layout_constraintStart_toEndOf="@+id/beneficiary"
+        app:layout_constraintTop_toBottomOf="@+id/editTransferAccount" />
 
     <Button
-        android:id="@+id/BotonTransferir"
+        android:id="@+id/confirmTransferButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="75dp"
@@ -163,10 +163,10 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NombreBeneficiario" />
+        app:layout_constraintTop_toBottomOf="@+id/beneficiary" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/menua"
+        android:id="@+id/navigationMenuFour"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@drawable/rounded"

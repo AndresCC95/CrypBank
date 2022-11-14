@@ -17,15 +17,14 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Pantalla6Perfil extends AppCompatActivity {
 
-    private Button botonVolver;
-    private Intent pantalla3;
-
     // Valores obtenidos de la base de datos
-    private TextView Email;
-    private TextView SaldoUsuario;
-    private TextView Nombre;
-    private TextView Apellidos;
-    private TextView Dni;
+    private TextView usuario;
+    private TextView nombre;
+    private TextView apellidos;
+    private TextView dni;
+    private TextView saldo;
+
+    private Button botonVolver;
 
     // Datos Cliente
     private FirebaseAuth myAuth;
@@ -36,54 +35,55 @@ public class Pantalla6Perfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla6);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        myAuth = FirebaseAuth.getInstance();
+        usuario =findViewById(R.id.editProfileEmail);
+        nombre =findViewById(R.id.editProfileName);
+        apellidos =findViewById(R.id.editProfileLastName);
+        dni =findViewById(R.id.editProfileDni);
+        saldo = findViewById(R.id.editProfileBalance);
 
-        Nombre=findViewById(R.id.EditNombrePerfil);
-        Apellidos=findViewById(R.id.EditApellidosPerfil);
-        Dni=findViewById(R.id.EditDNIPerfil);
-        SaldoUsuario = findViewById(R.id.EditSaldo);
-        Email =findViewById(R.id.EditEmailPerfil);
+        botonVolver = findViewById(R.id.returnButton);
+
+        myAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        botonVolver = findViewById(R.id.BotonVolver);
-
         botonVolver.setOnClickListener(view -> {
-            pantalla3 = new Intent(Pantalla6Perfil.this, Pantalla3Principal.class);
+            Intent pantalla3 = new Intent(Pantalla6Perfil.this, Pantalla3Principal.class);
             startActivity(pantalla3);
         });
-
         userInformation();
     }
 
     public void userInformation(){
         String id= myAuth.getCurrentUser().getUid();
+
         mDatabase.child("Usuarios").child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 if(snapshot.exists()){
+                    String user = snapshot.child("Email").getValue().toString();
+                    usuario.setText(user);
+
                     String name = snapshot.child("Nombre").getValue().toString();
-                    Nombre.setText(name);
+                    nombre.setText(name);
 
-                    String apellido = snapshot.child("Apellido").getValue().toString();
-                    Apellidos.setText(apellido);
+                    String lastName = snapshot.child("Apellido").getValue().toString();
+                    apellidos.setText(lastName);
 
-                    String email = snapshot.child("Email").getValue().toString();
-                    Email.setText(email);
-
-                    String dni = snapshot.child("Dni").getValue().toString();
-                    Dni.setText(dni);
+                    String userDni = snapshot.child("Dni").getValue().toString();
+                    Pantalla6Perfil.this.dni.setText(userDni);
 
                     // Arreglar porque con Double da problemas
-                    String price = (String) snapshot.child("Saldo").getValue().toString();
-                    SaldoUsuario.setText(price);
+                    String balance = snapshot.child("Saldo").getValue().toString();
+                    saldo.setText(balance);
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

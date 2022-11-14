@@ -8,7 +8,7 @@
     tools:context=".Pantalla5Crypto">
 
     <TextView
-        android:id="@+id/Titulo5"
+        android:id="@+id/titleFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/Wallet"
+        android:id="@+id/wallet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -32,10 +32,10 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Titulo5" />
+        app:layout_constraintTop_toBottomOf="@+id/titleFive" />
 
     <EditText
-        android:id="@+id/EditWallet"
+        android:id="@+id/editWallet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -44,11 +44,11 @@
         android:hint="Wallet"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/Wallet"
-        app:layout_constraintTop_toBottomOf="@+id/Titulo5" />
+        app:layout_constraintStart_toEndOf="@+id/wallet"
+        app:layout_constraintTop_toBottomOf="@+id/titleFive" />
 
     <TextView
-        android:id="@+id/Criptomoneda"
+        android:id="@+id/crypto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -58,10 +58,10 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Wallet" />
+        app:layout_constraintTop_toBottomOf="@+id/wallet" />
 
     <EditText
-        android:id="@+id/EditCriptomoneda"
+        android:id="@+id/editCrypto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -71,11 +71,11 @@
         android:inputType="textEmailAddress"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/Criptomoneda"
-        app:layout_constraintTop_toBottomOf="@+id/EditWallet" />
+        app:layout_constraintStart_toEndOf="@+id/crypto"
+        app:layout_constraintTop_toBottomOf="@+id/editWallet" />
 
     <TextView
-        android:id="@+id/CantidadTransferir"
+        android:id="@+id/transferQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -85,10 +85,10 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Criptomoneda" />
+        app:layout_constraintTop_toBottomOf="@+id/crypto" />
 
     <EditText
-        android:id="@+id/EditCantidadTransferir"
+        android:id="@+id/editTransferQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -98,11 +98,11 @@
         android:inputType="textPassword"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/CantidadTransferir"
-        app:layout_constraintTop_toBottomOf="@+id/EditCriptomoneda" />
+        app:layout_constraintStart_toEndOf="@+id/transferQuantity"
+        app:layout_constraintTop_toBottomOf="@+id/editCrypto" />
 
     <TextView
-        android:id="@+id/ImporteTransferir"
+        android:id="@+id/totalAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -112,10 +112,10 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CantidadTransferir" />
+        app:layout_constraintTop_toBottomOf="@+id/transferQuantity" />
 
     <EditText
-        android:id="@+id/EditImporteTransferir"
+        android:id="@+id/editTotalAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -125,11 +125,11 @@
         android:inputType="textPassword"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/ImporteTransferir"
-        app:layout_constraintTop_toBottomOf="@+id/EditCantidadTransferir" />
+        app:layout_constraintStart_toEndOf="@+id/totalAmount"
+        app:layout_constraintTop_toBottomOf="@+id/editTransferQuantity" />
 
     <Button
-        android:id="@+id/BotonComprar"
+        android:id="@+id/confirmBuyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="75dp"
@@ -137,12 +137,12 @@
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:text="Comprar"
-        app:layout_constraintTop_toBottomOf="@+id/ImporteTransferir"
+        app:layout_constraintTop_toBottomOf="@+id/totalAmount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/menua"
+        android:id="@+id/navigationMenuFive"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@drawable/rounded"
