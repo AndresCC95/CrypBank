@@ -1,18 +1,23 @@
 package com.example.crypbank;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.crypbank.coingecko.CoinGeckoAdapter;
 import com.example.crypbank.coingecko.CoinGeckoService;
 import com.example.crypbank.coingecko.models.Coin;
 import com.example.crypbank.coingecko.models.SimplePriceDeserializer;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -45,7 +50,8 @@ public class Pantalla3Principal extends AppCompatActivity {
 
     private Button botonTransferencia;
     private Button botonCompra;
-    private Button botonPerfil;
+
+    private FirebaseAuth myAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +75,8 @@ public class Pantalla3Principal extends AppCompatActivity {
 
         botonTransferencia = findViewById(R.id.transferButton);
         botonCompra = findViewById(R.id.buyButton);
-        botonPerfil = findViewById(R.id.profileButton);
+
+        myAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -86,10 +93,8 @@ public class Pantalla3Principal extends AppCompatActivity {
             startActivity(pantalla5);
         });
 
-        botonPerfil.setOnClickListener(view -> {
-            Intent pantalla6 = new Intent(Pantalla3Principal.this, Pantalla6Perfil.class);
-            startActivity(pantalla6);
-        });
+        BottomNavigationView menu = findViewById(R.id.navigationMenuThree);
+        menu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         CoinGeckoService api = CoinGeckoAdapter.getApiService();
         Call<ResponseBody> call = api.coinInfo(
@@ -154,4 +159,31 @@ public class Pantalla3Principal extends AppCompatActivity {
             }
         });
     }
+
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.item1:
+                    Intent pantalla4 = new Intent(Pantalla3Principal.this, Pantalla4Cuenta.class);
+                    startActivity(pantalla4);
+                    return true;
+                case R.id.item2:
+                    Intent pantalla5 = new Intent(Pantalla3Principal.this, Pantalla5Crypto.class);
+                    startActivity(pantalla5);
+                    return true;
+                case R.id.item3:
+                    Intent pantalla6 = new Intent(Pantalla3Principal.this, Pantalla6Perfil.class);
+                    startActivity(pantalla6);
+                    return true;
+                case R.id.item4:
+                    myAuth.signOut();
+                    Toast.makeText(getApplicationContext(), "Sesión cerrada.", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Pantalla3Principal.this, Pantalla1Inicio.class));
+                    finish();
+                    return true;
+            }
+            return false;
+        }
+    };
 }

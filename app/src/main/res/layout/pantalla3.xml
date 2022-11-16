@@ -31,6 +31,7 @@
             android:id="@+id/transferButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/boton_personalizado"
             android:text="Transferencia"
             android:fontFamily="monospace"
             android:textAllCaps="false"
@@ -112,10 +113,12 @@
             android:id="@+id/buyButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/boton_personalizado"
             android:text="Compra"
             android:fontFamily="monospace"
             android:textAllCaps="false"
             android:textColor="@color/black" />
+
         <TextView
             android:id="@+id/cryptoTitle"
             android:layout_width="wrap_content"
@@ -129,18 +132,6 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/buyButton" />
 
-        <Button
-            android:id="@+id/profileButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:fontFamily="monospace"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:text="Perfil"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
         <TextView
             android:id="@+id/cryptoUno"
             android:layout_width="wrap_content"
@@ -152,7 +143,7 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profileButton" />
+            app:layout_constraintTop_toBottomOf="@+id/buyButton" />
 
         <TextView
             android:id="@+id/editCryptoUno"
@@ -165,7 +156,7 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profileButton" />
+            app:layout_constraintTop_toBottomOf="@+id/buyButton" />
 
         <TextView
             android:id="@+id/editPrecioUno"
@@ -178,7 +169,7 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profileButton" />
+            app:layout_constraintTop_toBottomOf="@+id/buyButton" />
 
         <TextView
             android:id="@+id/cryptoDos"

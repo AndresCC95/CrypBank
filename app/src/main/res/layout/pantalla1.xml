@@ -7,13 +7,24 @@
     android:background="@color/blue"
     tools:context=".Pantalla1Inicio">
 
+    <ImageView
+        android:id="@+id/headerPictureOne"
+        android:layout_width="410dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/fondo_imagin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/titleOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:fontFamily="monospace"
-        android:text="Iniciar Sesión"
+        android:text="CrypBank"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -23,11 +34,12 @@
 
     <ImageView
         android:id="@+id/pictureOne"
-        android:layout_width="317dp"
-        android:layout_height="238dp"
+        android:layout_width="315dp"
+        android:layout_height="235dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="7dp"
+        android:src="@drawable/crypto_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,10 +55,10 @@
         app:endIconMode="clear_text"
         app:helperText="Obligatorio*"
         app:helperTextTextColor="@color/red"
+        app:startIconDrawable="@drawable/person"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pictureOne"
-        app:startIconDrawable="@drawable/person">
+        app:layout_constraintTop_toBottomOf="@+id/pictureOne">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editUserOne"
@@ -66,10 +78,10 @@
         app:endIconMode="password_toggle"
         app:helperText="Obligatorio*"
         app:helperTextTextColor="@color/red"
+        app:startIconDrawable="@drawable/lock"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userOne"
-        app:startIconDrawable="@drawable/lock">
+        app:layout_constraintTop_toBottomOf="@+id/userOne">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editPasswordOne"
@@ -84,6 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
+        android:background="@drawable/boton_personalizado"
         android:backgroundTint="@null"
         android:fontFamily="monospace"
         android:text="Acceder"

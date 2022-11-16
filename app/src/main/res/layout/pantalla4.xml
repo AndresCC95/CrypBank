@@ -7,6 +7,16 @@
     android:background="@color/blue"
     tools:context=".Pantalla4Cuenta">
 
+    <ImageView
+        android:id="@+id/FotoHeader5"
+        android:layout_width="410dp"
+        android:layout_height="155dp"
+        android:src="@drawable/fondo_imagin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/titleFour"
         android:layout_width="wrap_content"
@@ -157,6 +167,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="75dp"
+        android:background="@drawable/boton_personalizado"
         android:fontFamily="monospace"
         android:text="Transferir"
         android:textAllCaps="false"
