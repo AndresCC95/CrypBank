@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/boton_personalizado"
-            android:text="Transferencia"
+            android:text="@string/three_transfer_button"
             android:fontFamily="monospace"
             android:textAllCaps="false"
             android:textColor="@color/black" />
@@ -44,7 +44,7 @@
             android:layout_marginStart="250dp"
             android:layout_marginTop="5dp"
             android:fontFamily="monospace"
-            android:text="Cuenta Bancaria"
+            android:text="@string/three_bank_account"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -57,7 +57,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="75dp"
             android:fontFamily="monospace"
-            android:text="Saldo:"
+            android:text="@string/three_balance"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +70,7 @@
             android:layout_marginStart="90dp"
             android:layout_marginTop="75dp"
             android:fontFamily="monospace"
-            android:hint="Saldo"
+            android:hint="@string/three_balance_hint"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +83,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="125dp"
             android:fontFamily="monospace"
-            android:text="Últ. transferencia:"
+            android:text="@string/three_last_transfer"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -96,7 +96,7 @@
             android:layout_marginStart="215dp"
             android:layout_marginTop="125dp"
             android:fontFamily="monospace"
-            android:hint="Transferencias"
+            android:hint="@string/three_last_transfer_hint"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -109,223 +109,9 @@
         android:layout_height="match_parent"
         android:layout_weight=".3">
 
-        <Button
-            android:id="@+id/buyButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/boton_personalizado"
-            android:text="Compra"
-            android:fontFamily="monospace"
-            android:textAllCaps="false"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/cryptoTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="250dp"
-            android:layout_marginTop="5dp"
-            android:fontFamily="monospace"
-            android:text="Cryptomonedas"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/buyButton" />
-
-        <TextView
-            android:id="@+id/cryptoUno"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="100dp"
-            android:fontFamily="monospace"
-            android:text="Crypto 1:"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buyButton" />
-
-        <TextView
-            android:id="@+id/editCryptoUno"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="100dp"
-            android:fontFamily="monospace"
-            android:hint="Crypto1"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buyButton" />
-
-        <TextView
-            android:id="@+id/editPrecioUno"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="100dp"
-            android:fontFamily="monospace"
-            android:hint="PrecioCrypto1"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buyButton" />
-
-        <TextView
-            android:id="@+id/cryptoDos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="150dp"
-            android:fontFamily="monospace"
-            android:text="Crypto 2:"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cryptoUno" />
-
-        <TextView
-            android:id="@+id/editCryptoDos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="150dp"
-            android:fontFamily="monospace"
-            android:hint="Crypto2"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editCryptoUno" />
-
-        <TextView
-            android:id="@+id/editPrecioDos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="150dp"
-            android:fontFamily="monospace"
-            android:hint="PrecioCrypto2"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editPrecioUno" />
-
-        <TextView
-            android:id="@+id/cryptoTres"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="200dp"
-            android:fontFamily="monospace"
-            android:text="Crypto 3:"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cryptoDos" />
-
-        <TextView
-            android:id="@+id/editCryptoTres"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="200dp"
-            android:fontFamily="monospace"
-            android:hint="Crypto3"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editCryptoDos" />
-
-        <TextView
-            android:id="@+id/editPrecioTres"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="200dp"
-            android:fontFamily="monospace"
-            android:hint="PrecioCrypto3"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editPrecioDos" />
-
-        <TextView
-            android:id="@+id/cryptoCuatro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="250dp"
-            android:fontFamily="monospace"
-            android:text="Crypto 4:"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cryptoTres" />
-
-        <TextView
-            android:id="@+id/editCryptoCuatro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="250dp"
-            android:fontFamily="monospace"
-            android:hint="Crypto4"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editCryptoTres" />
-
-        <TextView
-            android:id="@+id/editPrecioCuatro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="250dp"
-            android:fontFamily="monospace"
-            android:hint="PrecioCrypto4"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editPrecioTres" />
-
-        <TextView
-            android:id="@+id/cryptoCinco"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="300dp"
-            android:fontFamily="monospace"
-            android:text="Crypto 5:"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cryptoCuatro" />
-
-        <TextView
-            android:id="@+id/editCryptoCinco"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="300dp"
-            android:fontFamily="monospace"
-            android:hint="Crypto5"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editCryptoCuatro" />
-
-        <TextView
-            android:id="@+id/editPrecioCinco"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="300dp"
-            android:fontFamily="monospace"
-            android:hint="PrecioCrypto5"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editPrecioCuatro" />
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </RelativeLayout>
 </LinearLayout>

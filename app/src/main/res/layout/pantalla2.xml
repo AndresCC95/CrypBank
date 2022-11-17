@@ -8,7 +8,7 @@
     tools:context=".Pantalla2Registro">
 
     <ImageView
-        android:id="@+id/FotoHeader2"
+        android:id="@+id/headerPictureTwo"
         android:layout_width="410dp"
         android:layout_height="155dp"
         android:layout_marginTop="5dp"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:fontFamily="monospace"
-        android:text="Registro"
+        android:text="@string/two_title"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -41,7 +41,7 @@
         android:fontFamily="monospace"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:text="Nombre: "
+        android:text="@string/two_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTwo" />
 
@@ -54,7 +54,7 @@
         android:fontFamily="monospace"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:hint="Nombre"
+        android:hint="@string/two_name_hint"
         app:layout_constraintStart_toEndOf="@+id/registerName"
         app:layout_constraintTop_toBottomOf="@+id/titleTwo" />
 
@@ -67,7 +67,7 @@
         android:fontFamily="monospace"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:text="Apellidos: "
+        android:text="@string/two_last_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerName" />
 
@@ -78,7 +78,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="8dp"
         android:fontFamily="monospace"
-        android:hint="Apellidos"
+        android:hint="@string/two_last_name_hint"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/registerLastName"
@@ -93,7 +93,7 @@
         android:fontFamily="monospace"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:text="DNI: "
+        android:text="@string/two_dni"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerLastName" />
 
@@ -104,7 +104,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:fontFamily="monospace"
-        android:hint="DNI"
+        android:hint="@string/two_dni_hint"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/registerDni"
@@ -119,7 +119,7 @@
         android:fontFamily="monospace"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:text="E-Mail: "
+        android:text="@string/two_mail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerDni" />
 
@@ -130,7 +130,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:fontFamily="monospace"
-        android:hint="E-Mail"
+        android:hint="@string/two_mail_hint"
         android:inputType="textEmailAddress"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -146,7 +146,7 @@
         android:fontFamily="monospace"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:text="Saldo Bancario: "
+        android:text="@string/two_balance"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerEmail" />
 
@@ -157,7 +157,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:fontFamily="monospace"
-        android:hint="Saldo Bancario"
+        android:hint="@string/two_balance_hint"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/registerBalance"
@@ -172,7 +172,7 @@
         android:fontFamily="monospace"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:text="Contraseña: "
+        android:text="@string/two_password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerBalance" />
 
@@ -183,7 +183,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:fontFamily="monospace"
-        android:hint="Contraseña"
+        android:hint="@string/two_password_hint"
         android:inputType="textPassword"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -199,7 +199,7 @@
         android:fontFamily="monospace"
         android:textAllCaps="false"
         android:textColor="@color/black"
-        android:text="Confirmar"
+        android:text="@string/two_confirm_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

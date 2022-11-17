@@ -2,6 +2,8 @@ package com.example.crypbank;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +26,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.ResponseBody;
@@ -33,6 +36,7 @@ import retrofit2.Response;
 
 public class Pantalla3Principal extends AppCompatActivity {
 
+    List<ListElement> elements;
     private TextView monedaUno;
     private TextView precioMonedaUno;
 
@@ -57,6 +61,8 @@ public class Pantalla3Principal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla3);
+
+        init();
 
         monedaUno = findViewById(R.id.editCryptoUno);
         precioMonedaUno = findViewById(R.id.editPrecioUno);
@@ -158,6 +164,16 @@ public class Pantalla3Principal extends AppCompatActivity {
                 t.printStackTrace();
             }
         });
+    }
+
+    public void init() {
+        elements = new ArrayList<>();
+
+        ListAdapter listAdapter = new ListAdapter(elements, this);
+        RecyclerView recyclerView = findViewById(R.id.listRecyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(listAdapter);
     }
 
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
