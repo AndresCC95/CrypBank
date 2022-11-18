@@ -37,23 +37,8 @@ import retrofit2.Response;
 public class Pantalla3Principal extends AppCompatActivity {
 
     List<ListElement> elements;
-    private TextView monedaUno;
-    private TextView precioMonedaUno;
-
-    private TextView monedaDos;
-    private TextView precioMonedaDos;
-
-    private TextView monedaTres;
-    private TextView precioMonedaTres;
-
-    private TextView monedaCuatro;
-    private TextView precioMonedaCuatro;
-
-    private TextView monedaCinco;
-    private TextView precioMonedaCinco;
 
     private Button botonTransferencia;
-    private Button botonCompra;
 
     private FirebaseAuth myAuth;
 
@@ -64,23 +49,7 @@ public class Pantalla3Principal extends AppCompatActivity {
 
         init();
 
-        monedaUno = findViewById(R.id.editCryptoUno);
-        precioMonedaUno = findViewById(R.id.editPrecioUno);
-
-        monedaDos = findViewById(R.id.editCryptoDos);
-        precioMonedaDos = findViewById(R.id.editPrecioDos);
-
-        monedaTres = findViewById(R.id.editCryptoTres);
-        precioMonedaTres = findViewById(R.id.editPrecioTres);
-
-        monedaCuatro = findViewById(R.id.editCryptoCuatro);
-        precioMonedaCuatro = findViewById(R.id.editPrecioCuatro);
-
-        monedaCinco = findViewById(R.id.editCryptoCinco);
-        precioMonedaCinco = findViewById(R.id.editPrecioCinco);
-
         botonTransferencia = findViewById(R.id.transferButton);
-        botonCompra = findViewById(R.id.buyButton);
 
         myAuth = FirebaseAuth.getInstance();
     }
@@ -92,11 +61,6 @@ public class Pantalla3Principal extends AppCompatActivity {
         botonTransferencia.setOnClickListener(view -> {
             Intent pantalla4 = new Intent(Pantalla3Principal.this, Pantalla4Cuenta.class);
             startActivity(pantalla4);
-        });
-
-        botonCompra.setOnClickListener(view -> {
-            Intent pantalla5 = new Intent(Pantalla3Principal.this, Pantalla5Crypto.class);
-            startActivity(pantalla5);
         });
 
         BottomNavigationView menu = findViewById(R.id.navigationMenuThree);
@@ -124,36 +88,6 @@ public class Pantalla3Principal extends AppCompatActivity {
                     Log.i("precio: ", String.valueOf(coins.get(1).getPrecio()));
                     Log.i("nombre: ", coins.get(2).getNombre());
                     Log.i("precio: ", String.valueOf(coins.get(2).getPrecio()));
-
-                    String monedaUnoA = coins.get(0).getNombre();
-                    String precioUnoA = String.valueOf(coins.get(0).getPrecio());
-
-                    String monedaDosA = coins.get(1).getNombre();
-                    String precioDosA = String.valueOf(coins.get(1).getPrecio());
-
-                    String monedaTresA = coins.get(2).getNombre();
-                    String precioTresA = String.valueOf(coins.get(2).getPrecio());
-
-                    String monedaCuatroA = coins.get(3).getNombre();
-                    String precioCuatroA = String.valueOf(coins.get(3).getPrecio());
-
-                    String monedaCincoA = coins.get(4).getNombre();
-                    String precioCincoA = String.valueOf(coins.get(4).getPrecio());
-
-                    monedaUno.setText(monedaUnoA);
-                    precioMonedaUno.setText(precioUnoA);
-
-                    monedaDos.setText(monedaDosA);
-                    precioMonedaDos.setText(precioDosA);
-
-                    monedaTres.setText(monedaTresA);
-                    precioMonedaTres.setText(precioTresA);
-
-                    monedaCuatro.setText(monedaCuatroA);
-                    precioMonedaCuatro.setText(precioCuatroA);
-
-                    monedaCinco.setText(monedaCincoA);
-                    precioMonedaCinco.setText(precioCincoA);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
