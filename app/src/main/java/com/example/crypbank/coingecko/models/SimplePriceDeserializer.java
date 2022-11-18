@@ -1,7 +1,5 @@
 package com.example.crypbank.coingecko.models;
 
-import android.util.Log;
-
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
@@ -26,4 +24,5 @@ public class SimplePriceDeserializer implements JsonDeserializer<List<Coin>> {
         }
         return coins;
     }
+
 }

@@ -28,4 +28,5 @@ public class Coin {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
 }

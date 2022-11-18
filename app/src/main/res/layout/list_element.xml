@@ -63,7 +63,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="6dp"
                 android:layout_marginRight="6dp"
-                android:text="eur"
+                android:text="@string/list_currency"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_alignParentRight="true"

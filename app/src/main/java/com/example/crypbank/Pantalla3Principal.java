@@ -8,12 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.crypbank.adapter.ListCoinAdapter;
 import com.example.crypbank.coingecko.CoinGeckoAdapter;
 import com.example.crypbank.coingecko.CoinGeckoService;
 import com.example.crypbank.coingecko.models.Coin;
@@ -26,7 +25,6 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.ResponseBody;
@@ -36,8 +34,6 @@ import retrofit2.Response;
 
 public class Pantalla3Principal extends AppCompatActivity {
 
-    List<ListElement> elements;
-
     private Button botonTransferencia;
 
     private FirebaseAuth myAuth;
@@ -46,25 +42,6 @@ public class Pantalla3Principal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla3);
-
-        init();
-
-        botonTransferencia = findViewById(R.id.transferButton);
-
-        myAuth = FirebaseAuth.getInstance();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        botonTransferencia.setOnClickListener(view -> {
-            Intent pantalla4 = new Intent(Pantalla3Principal.this, Pantalla4Cuenta.class);
-            startActivity(pantalla4);
-        });
-
-        BottomNavigationView menu = findViewById(R.id.navigationMenuThree);
-        menu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         CoinGeckoService api = CoinGeckoAdapter.getApiService();
         Call<ResponseBody> call = api.coinInfo(
@@ -80,14 +57,8 @@ public class Pantalla3Principal extends AppCompatActivity {
                     GsonBuilder builder = new GsonBuilder();
                     builder.registerTypeAdapter(collectionType, new SimplePriceDeserializer());
                     Gson customGson = builder.create();
-
-                    List<Coin> coins = customGson.fromJson(response.body().string(), collectionType);
-                    Log.i("nombre: ", coins.get(0).getNombre());
-                    Log.i("precio: ", String.valueOf(coins.get(0).getPrecio()));
-                    Log.i("nombre: ", coins.get(1).getNombre());
-                    Log.i("precio: ", String.valueOf(coins.get(1).getPrecio()));
-                    Log.i("nombre: ", coins.get(2).getNombre());
-                    Log.i("precio: ", String.valueOf(coins.get(2).getPrecio()));
+                    CoinGeckoAdapter.setListaCoins(customGson.fromJson(response.body().string(), collectionType));
+                    init();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -98,12 +69,26 @@ public class Pantalla3Principal extends AppCompatActivity {
                 t.printStackTrace();
             }
         });
+        botonTransferencia = findViewById(R.id.transferButton);
+        myAuth = FirebaseAuth.getInstance();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        botonTransferencia.setOnClickListener(view -> {
+            Intent pantalla4 = new Intent(Pantalla3Principal.this, Pantalla4Cuenta.class);
+            startActivity(pantalla4);
+        });
+        BottomNavigationView menu = findViewById(R.id.navigationMenuThree);
+        menu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
     public void init() {
-        elements = new ArrayList<>();
+        List<Coin> arias = CoinGeckoAdapter.getListaCoins();
 
-        ListAdapter listAdapter = new ListAdapter(elements, this);
+        ListCoinAdapter listAdapter = new ListCoinAdapter(arias, this);
         RecyclerView recyclerView = findViewById(R.id.listRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -136,4 +121,5 @@ public class Pantalla3Principal extends AppCompatActivity {
             return false;
         }
     };
+
 }
