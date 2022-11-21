@@ -34,11 +34,6 @@ public class Pantalla4Cuenta extends AppCompatActivity {
     private FirebaseAuth myAuth;
     private DatabaseReference mDatabase;
 
-    private String dniB;
-    private boolean existeU = false;
-    private double dinerito;
-    private double saldoActualizado;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +57,7 @@ public class Pantalla4Cuenta extends AppCompatActivity {
         balanceInformation();
 
         botonTransferir.setOnClickListener(view -> {
+
             Intent pantalla3 = new Intent(Pantalla4Cuenta.this, Pantalla3Principal.class);
             startActivity(pantalla3);
         });

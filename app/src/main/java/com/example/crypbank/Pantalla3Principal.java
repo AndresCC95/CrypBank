@@ -122,13 +122,11 @@ public class Pantalla3Principal extends AppCompatActivity {
         mDatabase.child("Usuarios").child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 if(snapshot.exists()){
                     String balance = snapshot.child("Saldo").getValue().toString();
                     saldo.setText(balance);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

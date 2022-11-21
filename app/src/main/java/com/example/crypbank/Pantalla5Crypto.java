@@ -14,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.crypbank.coingecko.models.Coin;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +23,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Pantalla5Crypto extends AppCompatActivity {
 
@@ -30,12 +35,14 @@ public class Pantalla5Crypto extends AppCompatActivity {
     private EditText cantidad;
     private TextView precioTotal;
 
+    private double balance = 0 ;
+
     private Button botonComprar;
 
     private FirebaseAuth myAuth;
     private DatabaseReference mDatabase;
 
-    private double operacion = 0;
+    private double operacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,16 +71,41 @@ public class Pantalla5Crypto extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        botonComprar.setOnClickListener(view -> {
-            Intent pantalla3 = new Intent(Pantalla5Crypto.this, Pantalla3Principal.class);
-            startActivity(pantalla3);
+        cantidad.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                double num1 = Double.parseDouble(precioCrypto.getText().toString());
+                double num2 = Double.parseDouble(cantidad.getText().toString());
+                operacion = num1 * num2;
+
+                precioTotal.setText(Double.toString(operacion));
+            }
         });
 
-        precioCrypto.getText().toString();
-        cantidad.setText(String.valueOf(0));
-
+        botonComprar.setOnClickListener(view -> {
+            balance = Double.parseDouble(saldo.getText().toString()) - Double.parseDouble(precioTotal.getText().toString());
+            actualizarFirebase();
+        });
         BottomNavigationView menu = findViewById(R.id.navigationMenuFive);
         menu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+    private void actualizarFirebase() {
+        String id = myAuth.getCurrentUser().getUid();
+        mDatabase.child("Usuarios").child(id).child("Saldo").setValue(balance);
+        Intent pantalla3 = new Intent(Pantalla5Crypto.this, Pantalla3Principal.class);
+        startActivity(pantalla3);
+        Toast.makeText(getApplicationContext(), "Compra completada con éxito!", Toast.LENGTH_SHORT).show();
     }
 
     public void balanceInformation() {
@@ -83,8 +115,8 @@ public class Pantalla5Crypto extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-                    String balance = snapshot.child("Saldo").getValue().toString();
-                    saldo.setText(balance);
+                    String balanceProv = snapshot.child("Saldo").getValue().toString();
+                    saldo.setText(balanceProv);
                 }
             }
             @Override
