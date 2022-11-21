@@ -11,6 +11,7 @@
         android:id="@+id/headerPictureSix"
         android:layout_width="410dp"
         android:layout_height="155dp"
+        android:layout_marginTop="2dp"
         android:src="@drawable/fondo_imagin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -34,7 +35,7 @@
     <ImageView
         android:id="@+id/profilePicture"
         android:layout_width="117dp"
-        android:layout_height="124dp"
+        android:layout_height="150dp"
         android:layout_marginTop="50dp"
         android:src="@drawable/foto_perfil"
         app:layout_constraintEnd_toEndOf="parent"

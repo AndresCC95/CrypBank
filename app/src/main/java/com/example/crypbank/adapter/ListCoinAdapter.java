@@ -1,6 +1,7 @@
 package com.example.crypbank.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +19,17 @@ public class ListCoinAdapter extends RecyclerView.Adapter<ListCoinAdapter.ViewHo
     private List<Coin> mData;
     private LayoutInflater mInflater;
     private Context context;
+    final ListCoinAdapter.OnItemClickListener listener;
 
-    public ListCoinAdapter(List<Coin> itemList, Context context) {
-        this.mInflater =LayoutInflater.from(context);
-        this.context =context;
-        this.mData =itemList;
+    public interface OnItemClickListener {
+        void onItemClick(Coin item);
+    }
+
+    public ListCoinAdapter(List<Coin> itemList, Context context, ListCoinAdapter.OnItemClickListener listener) {
+        this.mInflater = LayoutInflater.from(context);
+        this.context = context;
+        this.mData = itemList;
+        this.listener = listener;
     }
 
     @Override
@@ -55,6 +62,19 @@ public class ListCoinAdapter extends RecyclerView.Adapter<ListCoinAdapter.ViewHo
         void bindData(final Coin item) {
             nameView.setText(item.getNombre());
             priceView.setText(String.valueOf(item.getPrecio()));
+
+            if (item.getNombre().equals("bitcoin")) {
+                iconImage.setImageResource(R.drawable.bitcoin);
+            } else if (item.getNombre().equals("ethereum")) {
+                iconImage.setImageResource(R.drawable.ethereum);
+            } else if (item.getNombre().equals("dogecoin")) {
+                iconImage.setImageResource(R.drawable.dogecoin);
+            } else if (item.getNombre().equals("cardano")) {
+                iconImage.setImageResource(R.drawable.cardano);
+            } else if (item.getNombre().equals("solana")) {
+                iconImage.setImageResource(R.drawable.solana);
+            }
+            itemView.setOnClickListener(view -> listener.onItemClick(item));
         }
     }
 

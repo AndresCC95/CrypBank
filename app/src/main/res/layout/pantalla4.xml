@@ -11,6 +11,7 @@
         android:id="@+id/headerPictureFour"
         android:layout_width="410dp"
         android:layout_height="155dp"
+        android:layout_marginTop="2dp"
         android:src="@drawable/fondo_imagin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -32,56 +33,30 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/bankAccount"
+        android:id="@+id/balanceFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="115dp"
+        android:layout_marginTop="150dp"
         android:fontFamily="monospace"
-        android:text="@string/four_bank_account"
+        android:text="@string/four_balance"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleFour" />
 
     <TextView
-        android:id="@+id/editBankAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:fontFamily="monospace"
-        android:hint="@string/four_bank_account_hint"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/bankAccount"
-        app:layout_constraintTop_toTopOf="@+id/bankAccount" />
-
-    <TextView
-        android:id="@+id/balanceFour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="25dp"
-        android:fontFamily="monospace"
-        android:text="@string/four_balance"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bankAccount" />
-
-    <TextView
         android:id="@+id/editBalanceFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
+        android:layout_marginTop="150dp"
         android:fontFamily="monospace"
         android:hint="@string/four_balance_hint"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.344"
         app:layout_constraintStart_toEndOf="@+id/balanceFour"
-        app:layout_constraintTop_toTopOf="@+id/balanceFour" />
+        app:layout_constraintTop_toBottomOf="@+id/titleFour" />
 
     <TextView
         android:id="@+id/transferMoney"
@@ -136,7 +111,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTransferMoney" />
 
     <TextView
-        android:id="@+id/beneficiary"
+        android:id="@+id/four_beneficiary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -149,7 +124,7 @@
         app:layout_constraintTop_toBottomOf="@+id/transferAccount" />
 
     <EditText
-        android:id="@+id/editBeneficiary"
+        android:id="@+id/four_beneficiary_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -158,7 +133,7 @@
         android:hint="@string/four_beneficiary_hint"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/beneficiary"
+        app:layout_constraintStart_toEndOf="@+id/four_beneficiary"
         app:layout_constraintTop_toBottomOf="@+id/editTransferAccount" />
 
     <Button
@@ -173,7 +148,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/beneficiary" />
+        app:layout_constraintTop_toBottomOf="@+id/four_beneficiary" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationMenuFour"

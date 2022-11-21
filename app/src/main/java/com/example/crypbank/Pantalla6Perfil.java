@@ -21,14 +21,12 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Pantalla6Perfil extends AppCompatActivity {
 
-    // Valores obtenidos de la base de datos
-    private TextView usuario;
     private TextView nombre;
     private TextView apellidos;
+    private TextView usuario;
     private TextView dni;
     private TextView saldo;
 
-    // Datos Cliente
     private FirebaseAuth myAuth;
     private DatabaseReference mDatabase;
 
@@ -37,10 +35,10 @@ public class Pantalla6Perfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla6);
 
-        usuario =findViewById(R.id.editProfileEmail);
         nombre =findViewById(R.id.editProfileName);
         apellidos =findViewById(R.id.editProfileLastName);
         dni =findViewById(R.id.editProfileDni);
+        usuario =findViewById(R.id.editProfileEmail);
         saldo = findViewById(R.id.editProfileBalance);
 
         myAuth = FirebaseAuth.getInstance();
@@ -65,9 +63,6 @@ public class Pantalla6Perfil extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 if(snapshot.exists()){
-                    String user = snapshot.child("Email").getValue().toString();
-                    usuario.setText(user);
-
                     String name = snapshot.child("Nombre").getValue().toString();
                     nombre.setText(name);
 
@@ -75,14 +70,15 @@ public class Pantalla6Perfil extends AppCompatActivity {
                     apellidos.setText(lastName);
 
                     String userDni = snapshot.child("Dni").getValue().toString();
-                    Pantalla6Perfil.this.dni.setText(userDni);
+                    dni.setText(userDni);
 
-                    // Arreglar porque con Double da problemas
+                    String user = snapshot.child("Email").getValue().toString();
+                    usuario.setText(user);
+
                     String balance = snapshot.child("Saldo").getValue().toString();
                     saldo.setText(balance);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

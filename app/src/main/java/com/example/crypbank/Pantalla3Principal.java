@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.crypbank.adapter.ListCoinAdapter;
@@ -19,6 +20,11 @@ import com.example.crypbank.coingecko.models.Coin;
 import com.example.crypbank.coingecko.models.SimplePriceDeserializer;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -34,14 +40,19 @@ import retrofit2.Response;
 
 public class Pantalla3Principal extends AppCompatActivity {
 
+    private TextView saldo;
+
     private Button botonTransferencia;
 
     private FirebaseAuth myAuth;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla3);
+
+        saldo = findViewById(R.id.editBalanceThree);
 
         CoinGeckoService api = CoinGeckoAdapter.getApiService();
         Call<ResponseBody> call = api.coinInfo(
@@ -71,6 +82,7 @@ public class Pantalla3Principal extends AppCompatActivity {
         });
         botonTransferencia = findViewById(R.id.transferButton);
         myAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
     @Override
@@ -81,18 +93,47 @@ public class Pantalla3Principal extends AppCompatActivity {
             Intent pantalla4 = new Intent(Pantalla3Principal.this, Pantalla4Cuenta.class);
             startActivity(pantalla4);
         });
+
+        balanceInformation();
+
         BottomNavigationView menu = findViewById(R.id.navigationMenuThree);
         menu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
     public void init() {
-        List<Coin> arias = CoinGeckoAdapter.getListaCoins();
+        List<Coin> listaCryptos = CoinGeckoAdapter.getListaCoins();
 
-        ListCoinAdapter listAdapter = new ListCoinAdapter(arias, this);
+        ListCoinAdapter listAdapter = new ListCoinAdapter(listaCryptos, this, item -> moveToDescription(item));
         RecyclerView recyclerView = findViewById(R.id.listRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(listAdapter);
+    }
+
+    public void moveToDescription(Coin item) {
+        Intent pantalla5 = new Intent(Pantalla3Principal.this, Pantalla5Crypto.class);
+        pantalla5.putExtra("Coin", item);
+        startActivity(pantalla5);
+    }
+
+    public void balanceInformation() {
+        String id= myAuth.getCurrentUser().getUid();
+
+        mDatabase.child("Usuarios").child(id).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if(snapshot.exists()){
+                    String balance = snapshot.child("Saldo").getValue().toString();
+                    saldo.setText(balance);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
