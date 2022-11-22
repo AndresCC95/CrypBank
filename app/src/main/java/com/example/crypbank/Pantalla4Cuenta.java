@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,13 +29,19 @@ public class Pantalla4Cuenta extends AppCompatActivity {
 
     private TextView saldo;
     private EditText dineroEnviar;
-    private TextView dni;
-    private EditText nombreBeneficiario;
+    private EditText dni;
 
     private Button botonTransferir;
 
     private FirebaseAuth myAuth;
     private DatabaseReference mDatabase;
+
+    private String dniB;
+    private boolean existeUser = false;
+
+    private double operacion;
+    private double num1;
+    private double num2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +49,8 @@ public class Pantalla4Cuenta extends AppCompatActivity {
         setContentView(R.layout.pantalla4);
 
         saldo = findViewById(R.id.editBalanceFour);
-        dni = findViewById(R.id.editTransferAccount);
         dineroEnviar = findViewById(R.id.editTransferMoney);
-        nombreBeneficiario = findViewById(R.id.four_beneficiary_hint);
+        dni = findViewById(R.id.editTransferAccount);
 
         botonTransferir = findViewById(R.id.confirmTransferButton);
 
@@ -56,14 +64,83 @@ public class Pantalla4Cuenta extends AppCompatActivity {
 
         balanceInformation();
 
-        botonTransferir.setOnClickListener(view -> {
+        dineroEnviar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                num1 = Double.parseDouble(saldo.getText().toString());
+                num2 = Double.parseDouble(dineroEnviar.getText().toString());
+                //checkUsuario(dniB);
+
+                //if ((num1 >= num2)) {
+                    operacion = num1 - num2;
+
+                    //Toast.makeText(getApplicationContext(), "Saldo ok.", Toast.LENGTH_SHORT).show();
+                //} else {
+                //Toast.makeText(getApplicationContext(), "Saldo insuficiente.", Toast.LENGTH_SHORT).show();
+                //}
+            }
+        });
+        botonTransferir.setOnClickListener(view -> {
+            dniB = dni.getText().toString();
+            String id = myAuth.getCurrentUser().getUid();
+            mDatabase.child("Usuarios").child(id).child("Saldo").setValue(operacion);
+            mDatabase.child("Usuarios").child(id).child("Transferencia").setValue(dineroEnviar);
+            this.makeTransfer(dniB, num2);
             Intent pantalla3 = new Intent(Pantalla4Cuenta.this, Pantalla3Principal.class);
             startActivity(pantalla3);
         });
         BottomNavigationView menu = findViewById(R.id.navigationMenuFour);
         menu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
+
+    private void makeTransfer(String dni, Double money) {
+        Query userQuery = mDatabase.child("Usuarios").orderByChild("Dni").equalTo(dni);
+        userQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot user: snapshot.getChildren()) {
+                    String userUid = user.getKey();
+                    Long saldoActual = user.child("Saldo").getValue(Long.class);
+                    mDatabase.child("Usuarios").child(userUid).child("Saldo").setValue(saldoActual + money);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+//    private void checkUsuario(String dniBeneficiario) {
+//        Query verifUser = FirebaseDatabase.getInstance().getReference().child("Usuarios").orderByChild("Dni").equalTo(dniBeneficiario);
+//
+//        verifUser.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if(snapshot.exists()){
+//                    existeUser = true;
+//                    Toast.makeText(getApplicationContext(),"Usuario ok.",Toast.LENGTH_SHORT).show();
+//                } else {
+//                    existeUser = false;
+//                    Toast.makeText(getApplicationContext(), "El DNI del usuario no existe.", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//    }
 
     public void balanceInformation() {
         String id= myAuth.getCurrentUser().getUid();

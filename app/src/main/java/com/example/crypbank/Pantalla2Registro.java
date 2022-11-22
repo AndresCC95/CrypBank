@@ -30,6 +30,7 @@ public class Pantalla2Registro extends AppCompatActivity {
     private String lastName = "";
     private String userDni = "";
     private double balance = 0 ;
+    private double transfer = 0 ;
 
     private Button botonConfirmar;
 
@@ -66,7 +67,6 @@ public class Pantalla2Registro extends AppCompatActivity {
             userDni = dni.getText().toString();
             balance = Integer.parseInt(saldo.getText().toString());
 
-
             if (!name.isEmpty() && !user.isEmpty() && !password.isEmpty() && !lastName.isEmpty() && !userDni.isEmpty()) {
                 registroFirebase();
             } else {
@@ -86,6 +86,7 @@ public class Pantalla2Registro extends AppCompatActivity {
                 map.put("Apellido", lastName);
                 map.put("Dni", userDni);
                 map.put("Saldo", balance);
+                map.put("Transferencia", transfer);
 
                 String id= myAuth.getCurrentUser().getUid();
                 mDatabase.child("Usuarios").child(id).setValue(map).addOnCompleteListener(task2 -> {
@@ -101,4 +102,5 @@ public class Pantalla2Registro extends AppCompatActivity {
             }
         });
     }
+
 }

@@ -35,7 +35,7 @@ public class Pantalla5Crypto extends AppCompatActivity {
     private EditText cantidad;
     private TextView precioTotal;
 
-    private double balance = 0 ;
+    private double balance;
 
     private Button botonComprar;
 

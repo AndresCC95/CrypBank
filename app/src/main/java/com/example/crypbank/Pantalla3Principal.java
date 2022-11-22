@@ -41,6 +41,7 @@ import retrofit2.Response;
 public class Pantalla3Principal extends AppCompatActivity {
 
     private TextView saldo;
+    private TextView ultTransferencia;
 
     private Button botonTransferencia;
 
@@ -53,6 +54,7 @@ public class Pantalla3Principal extends AppCompatActivity {
         setContentView(R.layout.pantalla3);
 
         saldo = findViewById(R.id.editBalanceThree);
+        ultTransferencia = findViewById(R.id.editTransferThree);
 
         CoinGeckoService api = CoinGeckoAdapter.getApiService();
         Call<ResponseBody> call = api.coinInfo(
@@ -125,6 +127,12 @@ public class Pantalla3Principal extends AppCompatActivity {
                 if(snapshot.exists()){
                     String balance = snapshot.child("Saldo").getValue().toString();
                     saldo.setText(balance);
+                    String transfer = snapshot.child("Transferencia").getValue().toString();
+                    if (Double.parseDouble(transfer) == 0) {
+                        ultTransferencia.setText(R.string.three_last_transfer_prov);
+                    } else {
+                        ultTransferencia.setText(transfer);
+                    }
                 }
             }
             @Override
