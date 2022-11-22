@@ -9,116 +9,111 @@
 
     <ImageView
         android:id="@+id/headerPictureOne"
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="155dp"
-        android:layout_marginTop="5dp"
         android:src="@drawable/fondo_imagin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/titleOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="35dp"
         android:fontFamily="monospace"
-        android:text="@string/one_title"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/one_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/pictureOne"
-        android:layout_width="315dp"
+        android:layout_width="235dp"
         android:layout_height="235dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="7dp"
+        android:layout_marginTop="55dp"
         android:src="@drawable/crypto_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/titleOne"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleOne" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/userOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
         android:hint="@string/one_user"
+        app:startIconDrawable="@drawable/person"
         app:endIconMode="clear_text"
         app:helperText="Obligatorio*"
         app:helperTextTextColor="@color/red"
-        app:startIconDrawable="@drawable/person"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pictureOne">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editUserOne"
-            android:text="andres.prueba1@gmail.com"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:text="andres.prueba1@gmail.com" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
         android:hint="@string/one_password"
+        app:startIconDrawable="@drawable/lock"
         app:endIconMode="password_toggle"
         app:helperText="Obligatorio*"
         app:helperTextTextColor="@color/red"
-        app:startIconDrawable="@drawable/lock"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userOne">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editPasswordOne"
-            android:text="123456"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:text="123456" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/loginButtonOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:background="@drawable/boton_personalizado"
-        android:backgroundTint="@null"
         android:fontFamily="monospace"
-        android:text="@string/one_access_button"
         android:textAllCaps="false"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/transparentButton"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/one_access_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:rippleColor="@color/black" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/transparentButtonOne" />
 
     <Button
-        android:id="@+id/transparentButton"
+        android:id="@+id/transparentButtonOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="5dp"
         android:background="@android:color/transparent"
         android:fontFamily="monospace"
-        android:text="@string/one_register"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/one_register"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

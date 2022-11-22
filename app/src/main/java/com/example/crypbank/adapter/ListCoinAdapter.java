@@ -1,7 +1,6 @@
 package com.example.crypbank.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +53,7 @@ public class ListCoinAdapter extends RecyclerView.Adapter<ListCoinAdapter.ViewHo
 
         ViewHolder(View itemView) {
             super(itemView);
+
             iconImage = itemView.findViewById(R.id.iconImageView);
             nameView = itemView.findViewById(R.id.nameTextView);
             priceView = itemView.findViewById(R.id.priceTextView);
