@@ -96,7 +96,6 @@
             android:layout_marginStart="215dp"
             android:layout_marginTop="125dp"
             android:fontFamily="monospace"
-            android:hint="@string/three_last_transfer_hint"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
