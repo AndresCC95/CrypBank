@@ -45,10 +45,11 @@ public class Pantalla1Inicio extends AppCompatActivity {
             user = usuario.getText().toString();
             password = contraseña.getText().toString();
 
-            if (!user.isEmpty() && !password.isEmpty()) {
+            if(!user.isEmpty() && !password.isEmpty()) {
                 login();
             } else {
-                Toast.makeText(getApplicationContext(), "Error, rellena los campos obligatorios.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Error, rellena los campos obligatorios.",
+                        Toast.LENGTH_LONG).show();
             }
         });
 
@@ -65,7 +66,8 @@ public class Pantalla1Inicio extends AppCompatActivity {
                 startActivity(pantalla3);
                 finish();
             } else {
-                Toast.makeText(getApplicationContext(), "Error, comprueba los datos.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Error, comprueba los datos.",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }

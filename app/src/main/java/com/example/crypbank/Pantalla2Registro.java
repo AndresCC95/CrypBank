@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -24,32 +25,32 @@ public class Pantalla2Registro extends AppCompatActivity {
     private EditText dni;
     private EditText saldo;
 
-    private String user = "";
-    private String password = "";
-    private String name = "";
-    private String lastName = "";
-    private String userDni = "";
-    private double balance = 0 ;
-    private double transfer = 0 ;
-
     private Button botonConfirmar;
 
     private FirebaseAuth myAuth;
     private DatabaseReference mDatabase;
+
+    private String name = "";
+    private String lastName = "";
+    private String userDni = "";
+    private String user = "";
+    private double balance = 0 ;
+    private String password = "";
+    private final double transfer = 0 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla2);
 
-        usuario = findViewById(R.id.editRegisterEmail);
-        contraseña = findViewById(R.id.editRegisterPassword);
-        nombre = findViewById(R.id.editRegisterNaame);
-        apellidos = findViewById(R.id.editRegisterLastName);
-        dni = findViewById(R.id.editRegisterDni);
-        saldo = findViewById(R.id.editRegisterBalance);
+        nombre = findViewById(R.id.editRegisterNameTwo);
+        apellidos = findViewById(R.id.editRegisterLastNameTwo);
+        dni = findViewById(R.id.editRegisterDniTwo);
+        usuario = findViewById(R.id.editRegisterEmailTwo);
+        saldo = findViewById(R.id.editRegisterBalanceTwo);
+        contraseña = findViewById(R.id.editRegisterPasswordTwo);
 
-        botonConfirmar = findViewById(R.id.confirmButton);
+        botonConfirmar = findViewById(R.id.confirmButtonTwo);
 
         myAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -60,26 +61,29 @@ public class Pantalla2Registro extends AppCompatActivity {
         super.onStart();
 
         botonConfirmar.setOnClickListener(v -> {
-            name = nombre.getText().toString();
-            user = usuario.getText().toString();
-            password = contraseña.getText().toString();
-            lastName = apellidos.getText().toString();
-            userDni = dni.getText().toString();
-            balance = Integer.parseInt(saldo.getText().toString());
-
-            if (!name.isEmpty() && !user.isEmpty() && !password.isEmpty() && !lastName.isEmpty() && !userDni.isEmpty()) {
-                registroFirebase();
-            } else {
-                Toast.makeText(getApplicationContext(), "Debe instertar los datos que faltan.", Toast.LENGTH_SHORT).show();
+            try {
+                name = nombre.getText().toString();
+                lastName = apellidos.getText().toString();
+                userDni = dni.getText().toString();
+                user = usuario.getText().toString();
+                balance = Double.parseDouble(saldo.getText().toString());
+                password = contraseña.getText().toString();
+                signin();
+            } catch(NumberFormatException numberFormatException) {
+                Toast.makeText(getApplicationContext(),
+                        "Error, asegurate de que el campo saldo tiene un formato correcto.",
+                        Toast.LENGTH_LONG).show();
+            } catch(Exception e) {
+                Toast.makeText(getApplicationContext(), "Error, todos los campos son obligatorios.",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    private void registroFirebase() {
+    private void signin() {
         myAuth.createUserWithEmailAndPassword(user, password).addOnCompleteListener(task -> {
-
             if (task.isSuccessful()) {
-                Map<String,Object> map =new HashMap<>();
+                Map<String,Object> map = new HashMap<>();
                 map.put("Email", user);
                 map.put("Clave", password);
                 map.put("Nombre", name);
@@ -88,17 +92,19 @@ public class Pantalla2Registro extends AppCompatActivity {
                 map.put("Saldo", balance);
                 map.put("Transferencia", transfer);
 
-                String id= myAuth.getCurrentUser().getUid();
+                String id = myAuth.getCurrentUser().getUid();
                 mDatabase.child("Usuarios").child(id).setValue(map).addOnCompleteListener(task2 -> {
-                    if(task2.isSuccessful()){
+                    if(task2.isSuccessful()) {
                         Intent pantalla3 = new Intent(Pantalla2Registro.this, Pantalla3Principal.class);
                         startActivity(pantalla3);
                         finish();
                     }
                 });
-                Toast.makeText(getApplicationContext(), "Registro completado con éxito!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Registro completado con éxito!",
+                        Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), task.getException().getMessage(),
+                        Toast.LENGTH_LONG).show();
             }
         });
     }

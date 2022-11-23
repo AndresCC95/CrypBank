@@ -11,6 +11,7 @@
         android:id="@+id/headerPictureOne"
         android:layout_width="match_parent"
         android:layout_height="155dp"
+        android:layout_marginTop="1dp"
         android:src="@drawable/fondo_imagin"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -115,5 +116,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

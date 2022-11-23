@@ -18,7 +18,7 @@ import com.example.crypbank.coingecko.CoinGeckoAdapter;
 import com.example.crypbank.coingecko.CoinGeckoService;
 import com.example.crypbank.coingecko.models.Coin;
 import com.example.crypbank.coingecko.models.SimplePriceDeserializer;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -53,9 +53,6 @@ public class Pantalla3Principal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla3);
 
-        saldo = findViewById(R.id.editBalanceThree);
-        ultTransferencia = findViewById(R.id.editTransferThree);
-
         CoinGeckoService api = CoinGeckoAdapter.getApiService();
         Call<ResponseBody> call = api.coinInfo(
                 TextUtils.join(",", Coin.COIN_NAMES),
@@ -65,24 +62,33 @@ public class Pantalla3Principal extends AppCompatActivity {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                Type collectionType = new TypeToken<List<Coin>>(){}.getType();
+                GsonBuilder builder = new GsonBuilder();
+                builder.registerTypeAdapter(collectionType, new SimplePriceDeserializer());
+                Gson customGson = builder.create();
+
                 try {
-                    Type collectionType = new TypeToken<List<Coin>>(){}.getType();
-                    GsonBuilder builder = new GsonBuilder();
-                    builder.registerTypeAdapter(collectionType, new SimplePriceDeserializer());
-                    Gson customGson = builder.create();
-                    CoinGeckoAdapter.setListaCoins(customGson.fromJson(response.body().string(), collectionType));
+                    CoinGeckoAdapter.setListaCoins(customGson.fromJson(response.body().string(),
+                            collectionType));
                     init();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error de conexión con la API.",
+                            Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                t.printStackTrace();
+                Toast.makeText(getApplicationContext(), "Error de conexión con la API.",
+                        Toast.LENGTH_LONG).show();
             }
         });
-        botonTransferencia = findViewById(R.id.transferButton);
+
+        saldo = findViewById(R.id.editBalanceThree);
+        ultTransferencia = findViewById(R.id.editTransferThree);
+
+        botonTransferencia = findViewById(R.id.transferButtonThree);
+
         myAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
     }
@@ -97,34 +103,26 @@ public class Pantalla3Principal extends AppCompatActivity {
         });
 
         balanceInformation();
-
-        BottomNavigationView menu = findViewById(R.id.navigationMenuThree);
-        menu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        NavigationBarView menu = findViewById(R.id.navigationMenuThree);
+        menu.setOnItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
     public void init() {
         List<Coin> listaCryptos = CoinGeckoAdapter.getListaCoins();
-
-        ListCoinAdapter listAdapter = new ListCoinAdapter(listaCryptos, this, item -> moveToDescription(item));
+        ListCoinAdapter listAdapter = new ListCoinAdapter(listaCryptos,
+                this, item -> moveToDescription(item));
         RecyclerView recyclerView = findViewById(R.id.listRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(listAdapter);
     }
 
-    public void moveToDescription(Coin item) {
-        Intent pantalla5 = new Intent(Pantalla3Principal.this, Pantalla5Crypto.class);
-        pantalla5.putExtra("Coin", item);
-        startActivity(pantalla5);
-    }
-
     public void balanceInformation() {
-        String id= myAuth.getCurrentUser().getUid();
-
+        String id = myAuth.getCurrentUser().getUid();
         mDatabase.child("Usuarios").child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
+                if(snapshot.exists()) {
                     String balance = snapshot.child("Saldo").getValue().toString();
                     saldo.setText(balance);
                     String transfer = snapshot.child("Transferencia").getValue().toString();
@@ -135,33 +133,48 @@ public class Pantalla3Principal extends AppCompatActivity {
                     }
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(getApplicationContext(), "Error de conexión con la BBDD.",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    public void moveToDescription(Coin item) {
+        Intent pantalla5 = new Intent(Pantalla3Principal.this, Pantalla5Crypto.class);
+        pantalla5.putExtra("Coin", item);
+        startActivity(pantalla5);
+    }
+
+    private final NavigationBarView.OnItemSelectedListener mOnNavigationItemSelectedListener =
+            new NavigationBarView.OnItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.item1:
-                    Intent pantalla4 = new Intent(Pantalla3Principal.this, Pantalla4Cuenta.class);
-                    startActivity(pantalla4);
+                    Intent pantalla3 = new Intent(Pantalla3Principal.this,
+                            Pantalla3Principal.class);
+                    startActivity(pantalla3);
+                    finish();
                     return true;
                 case R.id.item2:
-                    Intent pantalla5 = new Intent(Pantalla3Principal.this, Pantalla5Crypto.class);
-                    startActivity(pantalla5);
+                    Intent pantalla4 = new Intent(Pantalla3Principal.this,
+                            Pantalla4Cuenta.class);
+                    startActivity(pantalla4);
                     return true;
                 case R.id.item3:
-                    Intent pantalla6 = new Intent(Pantalla3Principal.this, Pantalla6Perfil.class);
+                    Intent pantalla6 = new Intent(Pantalla3Principal.this,
+                            Pantalla6Perfil.class);
                     startActivity(pantalla6);
                     return true;
                 case R.id.item4:
                     myAuth.signOut();
-                    Toast.makeText(getApplicationContext(), "Sesión cerrada.", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Pantalla3Principal.this, Pantalla1Inicio.class));
+                    Toast.makeText(getApplicationContext(), "Sesión cerrada correctamente.",
+                            Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Pantalla3Principal.this,
+                            Pantalla1Inicio.class));
                     finish();
                     return true;
             }
