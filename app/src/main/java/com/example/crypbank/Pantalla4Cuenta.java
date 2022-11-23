@@ -1,7 +1,5 @@
 package com.example.crypbank;
 
-import static java.lang.Double.parseDouble;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,8 +37,8 @@ public class Pantalla4Cuenta extends AppCompatActivity {
     private boolean existeUser = false;
 
     private double operacion;
-    private double num1;
-    private double num2;
+    private double saldoActual;
+    private double dineroAEnviar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,12 +74,12 @@ public class Pantalla4Cuenta extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                num1 = Double.parseDouble(saldo.getText().toString());
-                num2 = Double.parseDouble(dineroEnviar.getText().toString());
+                saldoActual = Double.parseDouble(saldo.getText().toString());
+                dineroAEnviar = Double.parseDouble(dineroEnviar.getText().toString());
                 //checkUsuario(dniB);
 
                 //if ((num1 >= num2)) {
-                    operacion = num1 - num2;
+                    operacion = saldoActual - dineroAEnviar;
 
                     //Toast.makeText(getApplicationContext(), "Saldo ok.", Toast.LENGTH_SHORT).show();
                 //} else {
@@ -94,8 +91,8 @@ public class Pantalla4Cuenta extends AppCompatActivity {
             dniB = dni.getText().toString();
             String id = myAuth.getCurrentUser().getUid();
             mDatabase.child("Usuarios").child(id).child("Saldo").setValue(operacion);
-            mDatabase.child("Usuarios").child(id).child("Transferencia").setValue(dineroEnviar);
-            this.makeTransfer(dniB, num2);
+            mDatabase.child("Usuarios").child(id).child("Transferencia").setValue(dineroAEnviar);
+            this.makeTransfer(dniB, dineroAEnviar);
             Intent pantalla3 = new Intent(Pantalla4Cuenta.this, Pantalla3Principal.class);
             startActivity(pantalla3);
         });
