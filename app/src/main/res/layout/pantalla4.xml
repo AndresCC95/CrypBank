@@ -9,14 +9,13 @@
 
     <ImageView
         android:id="@+id/headerPictureFour"
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="155dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="1dp"
         android:src="@drawable/fondo_imagin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/titleFour"
@@ -24,24 +23,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:fontFamily="monospace"
-        android:text="@string/four_title"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/four_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/balanceFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="150dp"
+        android:layout_marginStart="25dp"
         android:fontFamily="monospace"
-        android:text="@string/four_balance"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:text="@string/four_balance"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleFour" />
 
@@ -49,8 +48,8 @@
         android:id="@+id/editBalanceFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:layout_marginTop="150dp"
+        android:layout_marginStart="5dp"
         android:fontFamily="monospace"
         android:hint="@string/four_balance_hint"
         android:textColor="@color/white"
@@ -59,105 +58,107 @@
         app:layout_constraintTop_toBottomOf="@+id/titleFour" />
 
     <TextView
-        android:id="@+id/transferMoney"
+        android:id="@+id/transferMoneyFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="25dp"
         android:fontFamily="monospace"
-        android:text="@string/four_money_transfer"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:text="@string/four_money_transfer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/balanceFour" />
 
     <EditText
-        android:id="@+id/editTransferMoney"
+        android:id="@+id/editTransferMoneyFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="5dp"
         android:fontFamily="monospace"
-        android:hint="@string/four_money_transfer_hint"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/transferMoney"
+        android:hint="@string/four_money_transfer_hint"
+        app:layout_constraintStart_toEndOf="@+id/transferMoneyFour"
         app:layout_constraintTop_toBottomOf="@+id/editBalanceFour" />
 
     <TextView
-        android:id="@+id/transferAccount"
+        android:id="@+id/transferAccountFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
         android:fontFamily="monospace"
+        android:textSize="16sp"
         android:text="@string/four_account_transfer"
         android:textColor="@color/black"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transferMoney" />
+        app:layout_constraintTop_toBottomOf="@+id/transferMoneyFour" />
 
     <EditText
-        android:id="@+id/editTransferAccount"
+        android:id="@+id/editTransferAccountFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="3dp"
         android:fontFamily="monospace"
-        android:hint="@string/four_account_transfer_hint"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/transferAccount"
-        app:layout_constraintTop_toBottomOf="@+id/editTransferMoney" />
+        android:hint="@string/four_account_transfer_hint"
+        app:layout_constraintStart_toEndOf="@+id/transferAccountFour"
+        app:layout_constraintTop_toBottomOf="@+id/editTransferMoneyFour" />
 
     <TextView
-        android:id="@+id/four_beneficiary"
+        android:id="@+id/beneficiaryFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
         android:fontFamily="monospace"
-        android:text="@string/four_beneficiary"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:text="@string/four_beneficiary"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transferAccount" />
+        app:layout_constraintTop_toBottomOf="@+id/transferAccountFour" />
 
     <EditText
-        android:id="@+id/four_beneficiary_hint"
+        android:id="@+id/editBeneficiaryFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="3dp"
         android:fontFamily="monospace"
-        android:hint="@string/four_beneficiary_hint"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/four_beneficiary"
-        app:layout_constraintTop_toBottomOf="@+id/editTransferAccount" />
+        android:hint="@string/four_beneficiary_hint"
+        app:layout_constraintStart_toEndOf="@+id/beneficiaryFour"
+        app:layout_constraintTop_toBottomOf="@+id/editTransferAccountFour" />
 
     <Button
-        android:id="@+id/confirmTransferButton"
+        android:id="@+id/confirmTransferButtonFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/boton_personalizado"
         android:fontFamily="monospace"
-        android:text="@string/four_transfer_button"
         android:textAllCaps="false"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/four_transfer_button"
+        app:layout_constraintTop_toBottomOf="@+id/beneficiaryFour"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/four_beneficiary" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationMenuFour"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="50dp"
         android:background="@drawable/rounded"
         app:itemIconTint="@color/color_menu"
         app:itemTextColor="@color/color_menu"
-        app:menu="@menu/menu"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
