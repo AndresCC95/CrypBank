@@ -71,5 +71,4 @@ public class Pantalla1Inicio extends AppCompatActivity {
             }
         });
     }
-
 }

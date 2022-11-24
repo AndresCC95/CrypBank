@@ -68,10 +68,6 @@ public class Pantalla2Registro extends AppCompatActivity {
                 balance = Double.parseDouble(saldo.getText().toString());
                 password = contraseña.getText().toString();
                 signin();
-            } catch(NumberFormatException numberFormatException) {
-                Toast.makeText(getApplicationContext(),
-                        "Error, asegurate de que el campo saldo tiene un formato correcto.",
-                        Toast.LENGTH_LONG).show();
             } catch(Exception e) {
                 Toast.makeText(getApplicationContext(), "Error, todos los campos son obligatorios.",
                         Toast.LENGTH_LONG).show();
@@ -107,5 +103,4 @@ public class Pantalla2Registro extends AppCompatActivity {
             }
         });
     }
-
 }

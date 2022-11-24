@@ -158,6 +158,7 @@
         android:fontFamily="monospace"
         android:textColor="@color/white"
         android:textSize="16sp"
+        android:inputType="numberDecimal"
         android:hint="@string/two_balance_hint"
         app:layout_constraintStart_toEndOf="@+id/registerBalanceTwo"
         app:layout_constraintTop_toBottomOf="@+id/editRegisterEmailTwo" />
@@ -182,10 +183,10 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:fontFamily="monospace"
-        android:hint="@string/two_password_hint"
-        android:inputType="textPassword"
         android:textColor="@color/white"
         android:textSize="16sp"
+        android:inputType="textPassword"
+        android:hint="@string/two_password_hint"
         app:layout_constraintStart_toEndOf="@+id/registerPasswordTwo"
         app:layout_constraintTop_toBottomOf="@+id/editRegisterBalanceTwo" />
 

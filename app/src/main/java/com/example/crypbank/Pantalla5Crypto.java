@@ -87,9 +87,11 @@ public class Pantalla5Crypto extends AppCompatActivity {
 
                     precioTotal.setText(Double.toString(operacion));
                 } catch(NumberFormatException numberFormatException) {
-                    Toast.makeText(getApplicationContext(),
+                    Toast.makeText(
+                            getApplicationContext(),
                             "Error, asegurate de que el campo cantidad no está vacío.",
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_LONG
+                    ).show();
                 }
             }
         });

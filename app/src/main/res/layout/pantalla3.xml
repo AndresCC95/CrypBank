@@ -24,18 +24,6 @@
         android:layout_height="match_parent"
         android:layout_weight=".7">
 
-        <Button
-            android:id="@+id/transferButtonThree"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="295dp"
-            android:layout_marginTop="110dp"
-            android:background="@drawable/boton_personalizado"
-            android:fontFamily="monospace"
-            android:text="@string/three_transfer_button"
-            android:textAllCaps="false"
-            android:textColor="@color/black" />
-
         <TextView
             android:id="@+id/accountTitleThree"
             android:layout_width="wrap_content"
@@ -89,7 +77,20 @@
             android:layout_marginTop="75dp"
             android:fontFamily="monospace"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:hint="@string/three_last_transfer_hint" />
+
+        <Button
+            android:id="@+id/transferButtonThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="295dp"
+            android:layout_marginTop="110dp"
+            android:background="@drawable/boton_personalizado"
+            android:fontFamily="monospace"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:text="@string/three_transfer_button" />
     </RelativeLayout>
 
     <RelativeLayout

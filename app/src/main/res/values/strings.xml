@@ -28,6 +28,7 @@
     <string name="three_balance">Saldo: </string>
     <string name="three_balance_hint">Saldo</string>
     <string name="three_last_transfer">Últ. transferencia: </string>
+    <string name="three_last_transfer_hint">Transferencia</string>
     <string name="three_last_transfer_prov">-</string>
     <string name="three_buy_button">Compra</string>
     <string name="three_crypto">Cryptomonedas</string>

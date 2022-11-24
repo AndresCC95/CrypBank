@@ -60,40 +60,33 @@ public class Pantalla4Cuenta extends AppCompatActivity {
 
         balanceInformation();
 
-        dineroEnviar.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                try {
-                    saldoActual = Double.parseDouble(saldo.getText().toString());
-                    dineroAEnviar = Double.parseDouble(dineroEnviar.getText().toString());
-                    if ((saldoActual >= dineroAEnviar)) {
-                        operacion = saldoActual - dineroAEnviar;
-                        Toast.makeText(getApplicationContext(), "Saldo ok.", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Saldo insuficiente.",
-                                Toast.LENGTH_LONG).show();
-                    }
-                } catch(NumberFormatException numberFormatException) {
-                    Toast.makeText(getApplicationContext(),
-                            "Error, asegurate de que el campo saldo tiene un formato correcto.",
-                            Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
         botonTransferir.setOnClickListener(view -> {
             dniB = dni.getText().toString();
             String id = myAuth.getCurrentUser().getUid();
+
+            try {
+                saldoActual = Double.parseDouble(saldo.getText().toString());
+                dineroAEnviar = Double.parseDouble(dineroEnviar.getText().toString());
+            } catch (NumberFormatException numberFormatException) {
+            }
+
+            if (dineroAEnviar == 0.0) {
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Error, asegurate de que el campo cantidad no está vacío.",
+                        Toast.LENGTH_LONG
+                ).show();
+                return;
+            }
+
+            if ((saldoActual >= dineroAEnviar)) {
+                operacion = saldoActual - dineroAEnviar;
+            } else {
+                Toast.makeText(getApplicationContext(), "Saldo insuficiente.",
+                        Toast.LENGTH_LONG).show();
+                return;
+            }
+
             Query userQuery = mDatabase.child("Usuarios").orderByChild("Dni").equalTo(dniB);
             userQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -101,7 +94,7 @@ public class Pantalla4Cuenta extends AppCompatActivity {
                     if(!snapshot.hasChildren()) {
                         Toast.makeText(
                                 getApplicationContext(),
-                                "Error, el DNI insertado no existe.",
+                                "Error, el DNI insertado no existe o está vacío.",
                                 Toast.LENGTH_LONG
                         ).show();
                         return;
@@ -181,5 +174,4 @@ public class Pantalla4Cuenta extends AppCompatActivity {
             return false;
         }
     };
-
 }
