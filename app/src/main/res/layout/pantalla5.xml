@@ -9,14 +9,13 @@
 
     <ImageView
         android:id="@+id/headerPictureFive"
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="155dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="1dp"
         android:src="@drawable/fondo_imagin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/titleFive"
@@ -24,24 +23,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:fontFamily="monospace"
-        android:text="@string/five_title"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/five_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/balanceFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginStart="25dp"
         android:fontFamily="monospace"
-        android:text="@string/five_balance"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:text="@string/five_balance"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleFive" />
 
@@ -49,118 +48,119 @@
         android:id="@+id/editBalanceFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="150dp"
         android:fontFamily="monospace"
-        android:hint="@string/five_balance_hint"
         android:textColor="@color/white"
         android:textSize="16sp"
+        android:hint="@string/five_balance_hint"
         app:layout_constraintStart_toEndOf="@+id/balanceFive"
         app:layout_constraintTop_toBottomOf="@+id/titleFive" />
 
     <TextView
-        android:id="@+id/crypto"
+        android:id="@+id/cryptoFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
         android:fontFamily="monospace"
-        android:text="@string/five_crypto"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:text="@string/five_crypto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/balanceFive" />
 
     <TextView
-        android:id="@+id/editCrypto"
+        android:id="@+id/editCryptoFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:layout_marginTop="25dp"
+        android:layout_marginStart="5dp"
         android:fontFamily="monospace"
-        android:hint="@string/five_crypto_hint"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/crypto"
+        android:hint="@string/five_crypto_hint"
+        app:layout_constraintStart_toEndOf="@+id/cryptoFive"
         app:layout_constraintTop_toBottomOf="@+id/editBalanceFive" />
 
     <TextView
-        android:id="@+id/priceCrypto"
+        android:id="@+id/priceCryptoFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
         android:fontFamily="monospace"
-        android:text="@string/five_price_crypto"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:text="@string/five_price_crypto"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/crypto" />
+        app:layout_constraintTop_toBottomOf="@+id/cryptoFive" />
 
     <TextView
-        android:id="@+id/editpriceCrypto"
+        android:id="@+id/editpriceCryptoFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:layout_marginTop="25dp"
+        android:layout_marginStart="5dp"
         android:fontFamily="monospace"
         android:hint="@string/five_price_crypto_hint"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/priceCrypto"
-        app:layout_constraintTop_toBottomOf="@+id/editCrypto" />
+        app:layout_constraintStart_toEndOf="@+id/priceCryptoFive"
+        app:layout_constraintTop_toBottomOf="@+id/editCryptoFive" />
 
     <TextView
-        android:id="@+id/transferQuantity"
+        android:id="@+id/transferQuantityFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
         android:fontFamily="monospace"
-        android:text="@string/five_transfer_quantity"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:text="@string/five_transfer_quantity"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/priceCrypto" />
+        app:layout_constraintTop_toBottomOf="@+id/priceCryptoFive" />
 
     <EditText
-        android:id="@+id/editTransferQuantity"
+        android:id="@+id/editTransferQuantityFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:layout_marginTop="12dp"
+        android:layout_marginStart="5dp"
         android:fontFamily="monospace"
-        android:hint="@string/five_transfer_quantity_hint"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/transferQuantity"
-        app:layout_constraintTop_toBottomOf="@+id/editpriceCrypto" />
+        android:inputType="phone"
+        android:hint="@string/five_transfer_quantity_hint"
+        app:layout_constraintStart_toEndOf="@+id/transferQuantityFive"
+        app:layout_constraintTop_toBottomOf="@+id/editpriceCryptoFive" />
 
     <TextView
-        android:id="@+id/totalAmount"
+        android:id="@+id/totalAmountFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
         android:fontFamily="monospace"
-        android:text="@string/five_tranfer_money"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:text="@string/five_tranfer_money"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transferQuantity" />
+        app:layout_constraintTop_toBottomOf="@+id/transferQuantityFive" />
 
     <TextView
-        android:id="@+id/editTotalAmount"
+        android:id="@+id/editTotalAmountFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:layout_marginTop="17dp"
+        android:layout_marginStart="5dp"
         android:fontFamily="monospace"
-        android:hint="@string/five_tranfer_money_hint"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/totalAmount"
-        app:layout_constraintTop_toBottomOf="@+id/editTransferQuantity" />
+        android:hint="@string/five_tranfer_money_hint"
+        app:layout_constraintStart_toEndOf="@+id/totalAmountFive"
+        app:layout_constraintTop_toBottomOf="@+id/editTransferQuantityFive" />
 
     <Button
         android:id="@+id/confirmBuyButton"
@@ -172,18 +172,17 @@
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:text="@string/five_buy_button"
-        app:layout_constraintTop_toBottomOf="@+id/totalAmount"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/totalAmountFive" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationMenuFive"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="50dp"
         android:background="@drawable/rounded"
         app:itemIconTint="@color/color_menu"
         app:itemTextColor="@color/color_menu"
         app:menu="@menu/menu"
         app:layout_constraintBottom_toBottomOf="parent"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
