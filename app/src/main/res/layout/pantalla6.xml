@@ -9,14 +9,13 @@
 
     <ImageView
         android:id="@+id/headerPictureSix"
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="155dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="1dp"
         android:src="@drawable/fondo_imagin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/titleSix"
@@ -24,161 +23,163 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:fontFamily="monospace"
-        android:text="@string/six_title"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/six_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/profilePicture"
-        android:layout_width="117dp"
+        android:id="@+id/profilePictureSix"
+        android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
         android:src="@drawable/foto_perfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleSix" />
 
     <TextView
-        android:id="@+id/profileName"
+        android:id="@+id/profileNameSix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
         android:layout_marginTop="50dp"
+        android:layout_marginStart="25dp"
         android:fontFamily="monospace"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         android:text="@string/six_name"
-        android:textColor="@color/black"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+        app:layout_constraintTop_toBottomOf="@+id/profilePictureSix" />
 
     <TextView
-        android:id="@+id/editProfileName"
+        android:id="@+id/editProfileNameSix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="50dp"
         android:fontFamily="monospace"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         android:hint="@string/six_name_hint"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/profileName"
-        app:layout_constraintTop_toTopOf="@+id/profileName" />
+        app:layout_constraintStart_toEndOf="@+id/profileNameSix"
+        app:layout_constraintTop_toBottomOf="@+id/profilePictureSix" />
 
     <TextView
-        android:id="@+id/profileLastName"
+        android:id="@+id/profileLastNameSix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
         android:fontFamily="monospace"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         android:text="@string/six_last_name"
-        android:textColor="@color/black"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileName" />
+        app:layout_constraintTop_toBottomOf="@+id/profileNameSix" />
 
     <TextView
-        android:id="@+id/editProfileLastName"
+        android:id="@+id/editProfileLastNameSix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
         android:fontFamily="monospace"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         android:hint="@string/six_last_name_hint"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/profileLastName"
-        app:layout_constraintTop_toTopOf="@+id/profileLastName" />
+        app:layout_constraintStart_toEndOf="@+id/profileLastNameSix"
+        app:layout_constraintTop_toBottomOf="@+id/editProfileNameSix" />
 
     <TextView
-        android:id="@+id/profileDni"
+        android:id="@+id/profileDniSix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
         android:fontFamily="monospace"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         android:text="@string/six_dni"
-        android:textColor="@color/black"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileLastName" />
+        app:layout_constraintTop_toBottomOf="@+id/profileLastNameSix" />
 
     <TextView
-        android:id="@+id/editProfileDni"
+        android:id="@+id/editProfileDniSix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="85dp"
         android:fontFamily="monospace"
-        android:hint="@string/six_dni_hint"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/profileDni"
-        app:layout_constraintTop_toTopOf="@+id/profileDni" />
+        android:hint="@string/six_dni_hint"
+        app:layout_constraintStart_toEndOf="@+id/profileDniSix"
+        app:layout_constraintTop_toBottomOf="@+id/editProfileLastNameSix" />
 
     <TextView
-        android:id="@+id/profileEmail"
+        android:id="@+id/profileEmailSix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
+        android:fontFamily="monospace"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:text="@string/six_mail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileDniSix" />
+
+    <TextView
+        android:id="@+id/editProfileEmailSix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="55dp"
+        android:fontFamily="monospace"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:hint="@string/six_mail_hint"
+        app:layout_constraintStart_toEndOf="@+id/profileEmailSix"
+        app:layout_constraintTop_toBottomOf="@+id/editProfileDniSix" />
+
+    <TextView
+        android:id="@+id/profileBalanceSix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
         android:fontFamily="monospace"
-        android:text="@string/six_mail"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileDni" />
-
-    <TextView
-        android:id="@+id/editProfileEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:fontFamily="monospace"
-        android:hint="@string/six_mail_hint"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/profileEmail"
-        app:layout_constraintTop_toTopOf="@+id/profileEmail" />
-
-    <TextView
-        android:id="@+id/profileBalance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="244dp"
-        android:fontFamily="monospace"
         android:text="@string/six_balance"
-        android:textColor="@color/black"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+        app:layout_constraintTop_toBottomOf="@+id/profileEmailSix" />
 
     <TextView
-        android:id="@+id/editProfileBalance"
+        android:id="@+id/editProfileBalanceSix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="monospace"
-        android:hint="@string/six_balance_hint"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+        android:hint="@string/six_balance_hint"
+        app:layout_constraintStart_toEndOf="@+id/profileBalanceSix"
+        app:layout_constraintTop_toBottomOf="@+id/editProfileEmailSix" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationMenuSix"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="50dp"
         android:background="@drawable/rounded"
         app:itemIconTint="@color/color_menu"
         app:itemTextColor="@color/color_menu"
         app:menu="@menu/menu"
         app:layout_constraintBottom_toBottomOf="parent"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

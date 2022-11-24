@@ -6,12 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,11 +33,11 @@ public class Pantalla6Perfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla6);
 
-        nombre =findViewById(R.id.editProfileName);
-        apellidos =findViewById(R.id.editProfileLastName);
-        dni =findViewById(R.id.editProfileDni);
-        usuario =findViewById(R.id.editProfileEmail);
-        saldo = findViewById(R.id.editProfileBalance);
+        nombre =findViewById(R.id.editProfileNameSix);
+        apellidos =findViewById(R.id.editProfileLastNameSix);
+        dni =findViewById(R.id.editProfileDniSix);
+        usuario =findViewById(R.id.editProfileEmailSix);
+        saldo = findViewById(R.id.editProfileBalanceSix);
 
         myAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -51,17 +49,15 @@ public class Pantalla6Perfil extends AppCompatActivity {
 
         userInformation();
 
-        BottomNavigationView menu = findViewById(R.id.navigationMenuSix);
-        menu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        NavigationBarView menu = findViewById(R.id.navigationMenuSix);
+        menu.setOnItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
     public void userInformation() {
         String id= myAuth.getCurrentUser().getUid();
-
         mDatabase.child("Usuarios").child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 if(snapshot.exists()){
                     String name = snapshot.child("Nombre").getValue().toString();
                     nombre.setText(name);
@@ -79,33 +75,44 @@ public class Pantalla6Perfil extends AppCompatActivity {
                     saldo.setText(balance);
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(getApplicationContext(), "Error de conexión con la BBDD.",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    private final NavigationBarView.OnItemSelectedListener mOnNavigationItemSelectedListener =
+            new NavigationBarView.OnItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.item1:
-                    Intent pantalla4 = new Intent(Pantalla6Perfil.this, Pantalla4Cuenta.class);
-                    startActivity(pantalla4);
+                    Intent pantalla3 = new Intent(Pantalla6Perfil.this,
+                            Pantalla3Principal.class);
+                    startActivity(pantalla3);
                     return true;
                 case R.id.item2:
-                    Intent pantalla5 = new Intent(Pantalla6Perfil.this, Pantalla5Crypto.class);
-                    startActivity(pantalla5);
+                    Intent pantalla4 = new Intent(Pantalla6Perfil.this,
+                            Pantalla4Cuenta.class);
+                    startActivity(pantalla4);
                     return true;
                 case R.id.item3:
-                    Intent pantalla6 = new Intent(Pantalla6Perfil.this, Pantalla6Perfil.class);
+                    Intent pantalla6 = new Intent(Pantalla6Perfil.this,
+                            Pantalla6Perfil.class);
                     startActivity(pantalla6);
                     return true;
                 case R.id.item4:
                     myAuth.signOut();
-                    Toast.makeText(getApplicationContext(), "Sesión cerrada.", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Pantalla6Perfil.this, Pantalla1Inicio.class));
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "Sesión cerrada.",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                    startActivity(new Intent(Pantalla6Perfil.this,
+                            Pantalla1Inicio.class));
                     finish();
                     return true;
             }
