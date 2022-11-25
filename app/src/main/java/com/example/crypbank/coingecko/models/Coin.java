@@ -2,8 +2,10 @@ package com.example.crypbank.coingecko.models;
 
 import java.io.Serializable;
 
+//Clase coin para indicar los datos de cada moneda crypto
 public class Coin implements Serializable  {
 
+    //Declaracion de variables
     public static final String[] COIN_NAMES = {"bitcoin","ethereum","dogecoin","cardano","solana"};
     public static final String[] CURRENCIES = {"eur"};
 
@@ -30,5 +32,4 @@ public class Coin implements Serializable  {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-
 }

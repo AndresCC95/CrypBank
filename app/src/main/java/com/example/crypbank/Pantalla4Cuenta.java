@@ -5,9 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,8 +20,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+//Pantalla de transferencias de la app
 public class Pantalla4Cuenta extends AppCompatActivity {
 
+    //Declaracion de variables
     private TextView saldo;
     private EditText dineroEnviar;
     private EditText dni;
@@ -34,6 +33,7 @@ public class Pantalla4Cuenta extends AppCompatActivity {
     private FirebaseAuth myAuth;
     private DatabaseReference mDatabase;
 
+    //Declaracion de variables auxiliares
     private String dniB;
     private double operacion;
     private double saldoActual;
@@ -44,6 +44,7 @@ public class Pantalla4Cuenta extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla4);
 
+        //Variables igualadas a su id del .xml
         saldo = findViewById(R.id.editBalanceFour);
         dineroEnviar = findViewById(R.id.editTransferMoneyFour);
         dni = findViewById(R.id.editTransferAccountFour);
@@ -60,6 +61,7 @@ public class Pantalla4Cuenta extends AppCompatActivity {
 
         balanceInformation();
 
+        //Asignacion de la accion de click en el boton de confirmar transferencia
         botonTransferir.setOnClickListener(view -> {
             dniB = dni.getText().toString();
             String id = myAuth.getCurrentUser().getUid();
@@ -68,6 +70,7 @@ public class Pantalla4Cuenta extends AppCompatActivity {
                 saldoActual = Double.parseDouble(saldo.getText().toString());
                 dineroAEnviar = Double.parseDouble(dineroEnviar.getText().toString());
             } catch (NumberFormatException numberFormatException) {
+
             }
 
             if (dineroAEnviar == 0.0) {
@@ -82,11 +85,15 @@ public class Pantalla4Cuenta extends AppCompatActivity {
             if ((saldoActual >= dineroAEnviar)) {
                 operacion = saldoActual - dineroAEnviar;
             } else {
-                Toast.makeText(getApplicationContext(), "Saldo insuficiente.",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Saldo insuficiente.",
+                        Toast.LENGTH_LONG
+                ).show();
                 return;
             }
 
+            //Consulta a Firebase para comprobar que el DNI del beneficiario es correcto
             Query userQuery = mDatabase.child("Usuarios").orderByChild("Dni").equalTo(dniB);
             userQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -100,6 +107,7 @@ public class Pantalla4Cuenta extends AppCompatActivity {
                         return;
                     }
 
+                    //Si el DNI es correcto, se actualizan los datos en Firebase y te lleva a la pantalla 3
                     for (DataSnapshot user: snapshot.getChildren()) {
                         String userUid = user.getKey();
                         Long saldoActual = user.child("Saldo").getValue(Long.class);
@@ -113,16 +121,21 @@ public class Pantalla4Cuenta extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-                    Toast.makeText(getApplicationContext(), "Error de conexión con la BBDD.",
-                            Toast.LENGTH_LONG).show();
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "Error de conexión con la BBDD.",
+                            Toast.LENGTH_LONG
+                    ).show();
                 }
             });
         });
 
+        //Recoger datos del menu de navegacion del .xml
         NavigationBarView menu = findViewById(R.id.navigationMenuFour);
         menu.setOnItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    //Metodo de recogida de los datos, desde Firebase, del saldo
     public void balanceInformation() {
         String id= myAuth.getCurrentUser().getUid();
         mDatabase.child("Usuarios").child(id).addValueEventListener(new ValueEventListener() {
@@ -136,38 +149,57 @@ public class Pantalla4Cuenta extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getApplicationContext(), "Error de conexión con la BBDD.",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Error de conexión con la BBDD.",
+                        Toast.LENGTH_LONG
+                ).show();
             }
         });
     }
 
+    //Metodo para la creacion del menu de navegacion y la asignacion de cada item
     private final NavigationBarView.OnItemSelectedListener mOnNavigationItemSelectedListener =
             new NavigationBarView.OnItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
+                //Item 1, donde al hacer click te lleva a la pantalla 3
                 case R.id.item1:
-                    Intent pantalla3 = new Intent(Pantalla4Cuenta.this,
-                            Pantalla3Principal.class);
+                    Intent pantalla3 = new Intent(
+                            Pantalla4Cuenta.this,
+                            Pantalla3Principal.class
+                    );
                     startActivity(pantalla3);
                     return true;
+                //Item 2, donde al hacer click te lleva a la pantalla 4
                 case R.id.item2:
-                    Intent pantalla4 = new Intent(Pantalla4Cuenta.this,
-                            Pantalla4Cuenta.class);
+                    Intent pantalla4 = new Intent(
+                            Pantalla4Cuenta.this,
+                            Pantalla4Cuenta.class
+                    );
                     startActivity(pantalla4);
                     return true;
+                //Item 3, donde al hacer click te lleva a la pantalla 6
                 case R.id.item3:
-                    Intent pantalla6 = new Intent(Pantalla4Cuenta.this,
-                            Pantalla6Perfil.class);
+                    Intent pantalla6 = new Intent(
+                            Pantalla4Cuenta.this,
+                            Pantalla6Perfil.class
+                    );
                     startActivity(pantalla6);
                     return true;
+                //Item 4, donde al hacer click te desconecta la sesion y te lleva a la pantalla 1
                 case R.id.item4:
                     myAuth.signOut();
-                    Toast.makeText(getApplicationContext(), "Sesión cerrada.",
-                            Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Pantalla4Cuenta.this,
-                            Pantalla1Inicio.class));
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "Sesión cerrada.",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                    startActivity(new Intent(
+                            Pantalla4Cuenta.this,
+                            Pantalla1Inicio.class)
+                    );
                     finish();
                     return true;
             }

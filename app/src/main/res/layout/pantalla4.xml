@@ -52,7 +52,7 @@
         android:layout_marginStart="5dp"
         android:fontFamily="monospace"
         android:hint="@string/four_balance_hint"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/balanceFour"
         app:layout_constraintTop_toBottomOf="@+id/titleFour" />
@@ -77,7 +77,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginStart="5dp"
         android:fontFamily="monospace"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:inputType="numberDecimal"
         android:hint="@string/four_money_transfer_hint"
@@ -104,7 +104,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginStart="5dp"
         android:fontFamily="monospace"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:hint="@string/four_account_transfer_hint"
         app:layout_constraintStart_toEndOf="@+id/transferAccountFour"
@@ -130,7 +130,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginStart="5dp"
         android:fontFamily="monospace"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:hint="@string/four_beneficiary_hint"
         app:layout_constraintStart_toEndOf="@+id/beneficiaryFour"
@@ -161,5 +161,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

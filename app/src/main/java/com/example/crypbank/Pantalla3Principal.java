@@ -38,8 +38,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+//Pantalla principal de la app
 public class Pantalla3Principal extends AppCompatActivity {
 
+    //Declaracion de variables
     private TextView saldo;
     private TextView ultTransferencia;
 
@@ -53,12 +55,14 @@ public class Pantalla3Principal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla3);
 
+        //Coger el servicio de la API en un patron singleton (se crea la instancia 1 vez para usarse)
         CoinGeckoService api = CoinGeckoAdapter.getApiService();
         Call<ResponseBody> call = api.coinInfo(
                 TextUtils.join(",", Coin.COIN_NAMES),
                 TextUtils.join(",", Coin.CURRENCIES)
         );
 
+        //Llamada a la API para pasar los datos recogidos, para desserializar la lista de monedas
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -72,18 +76,25 @@ public class Pantalla3Principal extends AppCompatActivity {
                             collectionType));
                     init();
                 } catch (IOException e) {
-                    Toast.makeText(getApplicationContext(), "Error de conexión con la API.",
-                            Toast.LENGTH_LONG).show();
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "Error de conexión con la API.",
+                            Toast.LENGTH_LONG
+                    ).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error de conexión con la API.",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Error de conexión con la API.",
+                        Toast.LENGTH_LONG
+                ).show();
             }
         });
 
+        //Variables igualadas a su id del .xml
         saldo = findViewById(R.id.editBalanceThree);
         ultTransferencia = findViewById(R.id.editTransferThree);
 
@@ -97,26 +108,34 @@ public class Pantalla3Principal extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        //Asignacion de la accion de click en el boton de ir a la pantalla 4
         botonTransferencia.setOnClickListener(view -> {
-            Intent pantalla4 = new Intent(Pantalla3Principal.this, Pantalla4Cuenta.class);
+            Intent pantalla4 = new Intent(
+                    Pantalla3Principal.this,
+                    Pantalla4Cuenta.class
+            );
             startActivity(pantalla4);
         });
 
+        //Recoger datos con el metodo y del menu de navegacion del .xml
         balanceInformation();
         NavigationBarView menu = findViewById(R.id.navigationMenuThree);
         menu.setOnItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    //Metodo inicial que se ejecuta para la creacion del RecyclerView con las monedas crypto
     public void init() {
         List<Coin> listaCryptos = CoinGeckoAdapter.getListaCoins();
         ListCoinAdapter listAdapter = new ListCoinAdapter(listaCryptos,
-                this, item -> moveToDescription(item));
+                this, item -> moveToDescription(item)
+        );
         RecyclerView recyclerView = findViewById(R.id.listRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(listAdapter);
     }
 
+    //Metodo de recogida de los datos, desde Firebase, del saldo y ultima transferencia
     public void balanceInformation() {
         String id = myAuth.getCurrentUser().getUid();
         mDatabase.child("Usuarios").child(id).addValueEventListener(new ValueEventListener() {
@@ -136,45 +155,68 @@ public class Pantalla3Principal extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getApplicationContext(), "Error de conexión con la BBDD.",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Error de conexión con la BBDD.",
+                        Toast.LENGTH_LONG
+                ).show();
             }
         });
     }
 
+    //Metodo que al hacer click en una moneda del RecyclerView te lleva a la pantalla 5
     public void moveToDescription(Coin item) {
-        Intent pantalla5 = new Intent(Pantalla3Principal.this, Pantalla5Crypto.class);
+        Intent pantalla5 = new Intent(
+                Pantalla3Principal.this,
+                Pantalla5Crypto.class
+        );
         pantalla5.putExtra("Coin", item);
         startActivity(pantalla5);
     }
 
+    //Metodo para la creacion del menu de navegacion y la asignacion de cada item
     private final NavigationBarView.OnItemSelectedListener mOnNavigationItemSelectedListener =
             new NavigationBarView.OnItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
+                //Item 1, donde al hacer click te lleva a la pantalla 3
                 case R.id.item1:
-                    Intent pantalla3 = new Intent(Pantalla3Principal.this,
-                            Pantalla3Principal.class);
+                    Intent pantalla3 = new Intent(
+                            Pantalla3Principal.this,
+                            Pantalla3Principal.class
+                    );
                     startActivity(pantalla3);
                     finish();
                     return true;
+                //Item 2, donde al hacer click te lleva a la pantalla 4
                 case R.id.item2:
-                    Intent pantalla4 = new Intent(Pantalla3Principal.this,
-                            Pantalla4Cuenta.class);
+                    Intent pantalla4 = new Intent(
+                            Pantalla3Principal.this,
+                            Pantalla4Cuenta.class
+                    );
                     startActivity(pantalla4);
                     return true;
+                //Item 3, donde al hacer click te lleva a la pantalla 6
                 case R.id.item3:
-                    Intent pantalla6 = new Intent(Pantalla3Principal.this,
-                            Pantalla6Perfil.class);
+                    Intent pantalla6 = new Intent(
+                            Pantalla3Principal.this,
+                            Pantalla6Perfil.class
+                    );
                     startActivity(pantalla6);
                     return true;
+                //Item 4, donde al hacer click te desconecta la sesion y te lleva a la pantalla 1
                 case R.id.item4:
                     myAuth.signOut();
-                    Toast.makeText(getApplicationContext(), "Sesión cerrada correctamente.",
-                            Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Pantalla3Principal.this,
-                            Pantalla1Inicio.class));
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "Sesión cerrada correctamente.",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                    startActivity(new Intent(
+                            Pantalla3Principal.this,
+                            Pantalla1Inicio.class)
+                    );
                     finish();
                     return true;
             }
