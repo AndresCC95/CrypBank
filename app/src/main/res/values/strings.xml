@@ -7,8 +7,9 @@
     <string name="one_title">CrypBank</string>
     <string name="one_user">Usuario</string>
     <string name="one_password">Contraseña</string>
+    <string name="one_forgot">Olvidaste tu contraseña?</string>
     <string name="one_access_button">Acceder</string>
-    <string name="one_register">No tienes cuenta? Registrate aquí.</string>
+    <string name="one_register_button">No tienes cuenta? Registrate aquí.</string>
     <string name="two_title">Registro</string>
     <string name="two_name">Nombre: </string>
     <string name="two_name_hint">Nombre</string>
@@ -67,6 +68,9 @@
     <string name="six_mail_hint">E-Mail</string>
     <string name="six_balance">Saldo: </string>
     <string name="six_balance_hint">Saldo</string>
+    <string name="seven_title">Restablecer contraseña</string>
+    <string name="seven_recover">Recupera tu contraseña</string>
+    <string name="seven_enter">Ingresa tu e-mail</string>
+    <string name="seven_recover_button">Recuperar</string>
     <string name="list_currency">eur</string>
-
 </resources>

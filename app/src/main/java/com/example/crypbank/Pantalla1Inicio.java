@@ -4,19 +4,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Pantalla1Inicio extends AppCompatActivity {
 
-    private EditText usuario;
-    private EditText contraseña;
+    private TextInputEditText usuario;
+    private TextInputEditText contraseña;
+    private TextView olvidarContraseña;
+    private TextView registro;
 
     private Button botonLogin;
-    private Button botonTransparente;
 
     private FirebaseAuth myAuth;
 
@@ -30,9 +35,10 @@ public class Pantalla1Inicio extends AppCompatActivity {
 
         usuario = findViewById(R.id.editUserOne);
         contraseña = findViewById(R.id.editPasswordOne);
+        olvidarContraseña = findViewById(R.id.editForgotPasswordOne);
+        registro = findViewById(R.id.editRegisterOne);
 
         botonLogin = findViewById(R.id.loginButtonOne);
-        botonTransparente = findViewById(R.id.transparentButtonOne);
 
         myAuth = FirebaseAuth.getInstance();
     }
@@ -53,7 +59,13 @@ public class Pantalla1Inicio extends AppCompatActivity {
             }
         });
 
-        botonTransparente.setOnClickListener(view -> {
+        olvidarContraseña.setOnClickListener(view -> {
+            Intent pantalla7 = new Intent(Pantalla1Inicio.this, Pantalla7Restablecer.class);
+            startActivity(pantalla7);
+            finish();
+        });
+
+        registro.setOnClickListener(view -> {
             Intent pantalla2 = new Intent(Pantalla1Inicio.this, Pantalla2Registro.class);
             startActivity(pantalla2);
         });

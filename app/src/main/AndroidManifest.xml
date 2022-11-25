@@ -15,6 +15,13 @@
         android:theme="@style/Theme.CrypBank"
         tools:targetApi="31">
         <activity
+            android:name=".Pantalla7Restablecer"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Pantalla6Perfil"
             android:exported="false">
             <meta-data
